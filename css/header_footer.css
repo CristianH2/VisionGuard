@@ -1,0 +1,49 @@
+/* Estilo para la barra de navegación principal */
+#barraNavegacion {
+    background-color: #ffffff; /* Fondo blanco para la barra de navegación */
+}
+
+/* Estilo para los botones en la barra de filtro */
+#barraFiltro .btn {
+    color: rgb(255, 255, 255); /* Texto blanco en los botones */
+    background-color: #11929e; /* Color de fondo temático */
+    border: none; /* Sin bordes */
+}
+/* ==== Temática General ==== */
+
+.bg-tema-tienda {
+    background-color: #11929e; /* Fondo verde azulado */
+    color: #ffffff; /* Texto blanco */
+}
+
+.bg-tema-tienda a {
+    color: #ffffff; /* Enlaces blancos */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.bg-tema-tienda a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+
+/* === Estilo general para el pie de página === */
+footer {
+    background-color: #11929e; /* Fondo temático */
+    color: #ffffff; /* Texto blanco */
+    padding: 20px; /* Espaciado interno */
+}
+
+footer h5 {
+    font-size: 1.2rem; /* Tamaño del título */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+footer p,
+footer a {
+    font-size: 0.9rem; /* Texto más pequeño */
+    line-height: 1.5; /* Altura de línea */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}

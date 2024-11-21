@@ -1,0 +1,157 @@
+/* Estilo para la barra de navegación principal */
+#barraNavegacion {
+    background-color: #ffffff; /* Fondo blanco para la barra de navegación */
+}
+
+/* Estilo para los botones en la barra de filtro */
+#barraFiltro .btn {
+    color: rgb(255, 255, 255); /* Texto blanco en los botones */
+    background-color: #11929e; /* Color de fondo temático */
+    border: none; /* Sin bordes */
+}
+
+/* Fondo blanco para los banners */
+#baners .row {
+    background-color: #ffffff;
+}
+
+/* ==== Estilo del Carrusel Principal ==== */
+
+/* Fondo del texto del carrusel principal*/
+#carouselInicio .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
+    bottom: 20px; /* Ajusta la posición vertical del texto */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Tamaño del texto del carrusel principal */
+#carouselInicio .carousel-caption h5 {
+    font-size: 2rem; /* Título más grande */
+    color: #ffffff; /* Texto blanco */
+}
+
+/* Ancho máximo y altura fija para las imágenes del carrusel */
+#carouselInicio .carousel-item{
+    max-height: 400px;  
+}
+
+#carouselInicio .carousel-item img {
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    height: 100%; /* Ajusta la altura al contenedor */
+}
+
+/* Fondo blanco para barra3 */
+#barra3 .row{
+    background-color: #ffffff;
+}
+
+/* Línea debajo de los títulos */
+.text-with-line {
+    display: inline-block;
+    border-bottom: 2px solid #11929e; /* Línea temática */
+    padding-bottom: 5px; /* Espaciado debajo del texto */
+    margin-bottom: 10px; /* Espaciado inferior */
+    font-weight: bold; /* Texto destacado */
+    color: #333333; /* Color del texto */
+}
+
+/* ==== Estilo de Imágenes Responsivas ==== */
+.responsive-image {
+    max-width: 100%; /* Se ajusta al ancho del contenedor */
+    height: 200px;    /* Mantiene proporción */
+    object-fit: contain; /* Mantiene la relación de aspecto dentro del contenedor */
+}
+
+/* ==== Carrusel de Categorías ==== */
+.bg-color-gris {
+    background-color: #e5e5e5; /* Fondo gris claro */
+}
+
+/* Estilo para la imagen de perfil */
+.profile-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Estilo para las tarjetas de comentarios */
+.comment-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border: none; /* Sin bordes */
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilo de las estrellas */
+.stars i {
+    color: #076aff; /* Amarillo para las estrellas */
+}
+
+/* Ajustar posición de las flechas */
+#comentariosCarrusel .carousel-control-prev, #comentariosCarrusel .carousel-control-next {
+    width: 4%; /* Reduce el tamaño del área de clic */
+}
+
+#comentariosCarrusel .carousel-control-prev {
+    left: 5px; /* Más cerca del borde izquierdo */
+}
+
+#comentariosCarrusel .carousel-control-next {
+    right: 5px; /* Más cerca del borde derecho */
+}
+
+/* Cambiar color de las flechas */
+#comentariosCarrusel .carousel-control-prev-icon, #comentariosCarrusel .carousel-control-next-icon {
+    background-color: #e5e5e5; /* Azul */
+    border-radius: 50%; /* Forma circular */
+    padding: 10px; /* Espaciado interno */
+}
+
+/* Cambiar el color de las flechas al pasar el mouse */
+#comentariosCarrusel .carousel-control-prev-icon:hover, #comentariosCarrusel .carousel-control-next-icon:hover {
+    background-color: #cfcdcd; /* Azul más oscuro */
+}
+
+/* ==== Temática General ==== */
+
+.bg-tema-tienda {
+    background-color: #11929e; /* Fondo verde azulado */
+    color: #ffffff; /* Texto blanco */
+}
+
+.bg-tema-tienda a {
+    color: #ffffff; /* Enlaces blancos */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.bg-tema-tienda a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* ==== Footer ==== */
+
+/* Estilo general para el pie de página */
+footer {
+    background-color: #11929e; /* Fondo temático */
+    color: #ffffff; /* Texto blanco */
+    padding: 20px; /* Espaciado interno */
+}
+
+footer h5 {
+    font-size: 1.2rem; /* Tamaño del título */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+footer p,
+footer a {
+    font-size: 0.9rem; /* Texto más pequeño */
+    line-height: 1.5; /* Altura de línea */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}

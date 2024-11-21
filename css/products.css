@@ -1,0 +1,57 @@
+/* Animación al pasar el mouse por las opciones de filtro */
+.list-group-item:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+/* Resaltar elemento seleccionado */
+.list-group-item.selected {
+    background-color: #11929e;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Estilo de las estrellas */
+.product-rating i {
+    margin-right: 2px;
+    font-size: 1.2rem; /* Ajustar el tamaño de las estrellas */
+    color: #ffc107; /* Color amarillo */
+}
+.product-rating i.empty {
+    color: #ddd; /* Gris para estrellas vacías */
+}
+
+/* Estilos para el precio */
+.product-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #11929e;
+}
+
+
+/* Estilo para el filtro de estrellas */
+#rating-filter .list-group-item:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#rating-filter .list-group-item.selected {
+    background-color: #11929e;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+/* Resaltar productos coincidentes */
+.product-card.highlight {
+    border-color: #11929e;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(17, 146, 158, 0.5); /* Sombra para resaltar */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
