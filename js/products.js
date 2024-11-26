@@ -1,7 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const productGrid = document.getElementById("product-grid");
-    const searchForm = document.getElementById("search-form");
     const searchInput = document.getElementById("search-input");
     const categoryFilter = document.getElementById("category-filter");
     const brandFilter = document.getElementById("brand-filter");
@@ -11,32 +10,59 @@ document.addEventListener("DOMContentLoaded", function () {
     const ratingFilter = document.getElementById("rating-filter");
     const sortPrice = document.getElementById("sort-price");
 
+    // Variables globales
+    let products = [];
+    let filteredProducts = [];
 
-    // Simulación de productos obtenidos desde la base de datos
-    const products = [
-        { id: 1, name: "Cámara HD", category: "Cámaras", brand: "Marca 1", price: 1999.00, color: "Negro", rating: 4.5, image: "img/sinImagen-2.jpg" },
-        { id: 2, name: "Cámara Full HD", category: "Cámaras", brand: "Marca 2", price: 2999.00, color: "Blanco", rating: 5, image: "img/sinImagen-2.jpg" },
-        { id: 3, name: "DVR Básico", category: "Grabadores", brand: "Marca 1", price: 1500.00, color: "Negro", rating: 3.5, image: "img/sinImagen-2.jpg" },
-        { id: 4, name: "DVR Avanzado", category: "Grabadores", brand: "Marca 2", price: 3500.00, color: "Blanco", rating: 4, image: "img/sinImagen-2.jpg" },
-        { id: 5, name: "Kit de Cámaras", category: "Cámaras", brand: "Marca 3", price: 4999.00, color: "Azul", rating: 5.5, image: "img/sinImagen-2.jpg" },
-        { id: 6, name: "Cable Coaxial", category: "Accesorios", brand: "Marca 1", price: 250.00, color: "Negro", rating: 2, image: "img/sinImagen-2.jpg" },
-        { id: 7, name: "Conector BNC", category: "Accesorios", brand: "Marca 2", price: 100.00, color: "Blanco", rating: 3.5, image: "img/sinImagen-2.jpg" },
-        { id: 8, name: "Fuente de Poder 12V", category: "Accesorios", brand: "Marca 3", price: 600.00, color: "Negro", rating: 4, image: "img/sinImagen-2.jpg" },
-        { id: 9, name: "Cámara 4K", category: "Cámaras", brand: "Marca 1", price: 4000.00, color: "Negro", rating: 5.5, image: "img/sinImagen-2.jpg" },
-        { id: 10, name: "DVR Profesional", category: "Grabadores", brand: "Marca 3", price: 7500.00, color: "Azul", rating: 5, image: "img/sinImagen-2.jpg" },
-        { id: 11, name: "Cámara IP", category: "Cámaras", brand: "Marca 2", price: 2500.00, color: "Blanco", rating: 4, image: "img/sinImagen-2.jpg" },
-        { id: 12, name: "Kit de Instalación", category: "Accesorios", brand: "Marca 1", price: 500.00, color: "Azul", rating: 3, image: "img/sinImagen-2.jpg" },
-        { id: 13, name: "Cámara Interior", category: "Cámaras", brand: "Marca 3", price: 1500.00, color: "Blanco", rating: 2.5, image: "img/sinImagen-2.jpg" },
-        { id: 14, name: "Sensor de Movimiento", category: "Accesorios", brand: "Marca 2", price: 1200.00, color: "Negro", rating: 4, image: "img/sinImagen-2.jpg" },
-        { id: 15, name: "Cámara Térmica", category: "Cámaras", brand: "Marca 1", price: 15000.00, color: "Negro", rating: 5.5, image: "img/sinImagen-2.jpg" },
-        { id: 16, name: "DVR Compacto", category: "Grabadores", brand: "Marca 3", price: 2500.00, color: "Azul", rating: 3, image: "img/sinImagen-2.jpg" },
-        { id: 17, name: "Lente de Zoom", category: "Accesorios", brand: "Marca 1", price: 800.00, color: "Blanco", rating: 4.5, image: "img/sinImagen-2.jpg" },
-        { id: 18, name: "Cable HDMI", category: "Accesorios", brand: "Marca 2", price: 150.00, color: "Negro", rating: 2.5, image: "img/sinImagen-2.jpg" },
-        { id: 19, name: "Cámara Exterior", category: "Cámaras", brand: "Marca 3", price: 3200.00, color: "Negro", rating: 4.5, image: "img/sinImagen-2.jpg" },
-        { id: 20, name: "Sistema DVR Completo", category: "Grabadores", brand: "Marca 1", price: 10000.00, color: "Blanco", rating: 5, image: "img/sinImagen-2.jpg" }
-    ];
-    let filteredProducts = [...products]; // Copia inicial para manipulación
+    // Leer el parámetro 'busca' de la URL
+    const urlParam = window.location.search;
+    console.log(urlParam);
 
+    // Creamos una instancia de URLSeacrhParams
+    const parametrosURL = new URLSearchParams(urlParam);
+    console.log(parametrosURL);
+
+    // Recorriendo todos los parámetros de la URL
+    for (let valoresURL of parametrosURL){
+        console.log(valoresURL);
+    }
+
+    // Obteniendo los valores
+    var busca = parametrosURL.get('busca');
+    console.info('Peoducto buscado: '+ busca);
+
+    // Verificar sis existe un parámetro en la URL
+    let valorURL = parametrosURL.has('busca');
+    console.log(valorURL);
+
+    // Función para asignar formato de moneda
+    function formatPrice(price) {
+        return new Intl.NumberFormat('es-MX', {
+            style: 'currency',
+            currency: 'MXN',
+            minimumFractionDigits: 2
+        }).format(price);
+    }
+    
+
+    // Función para cargar productos desde un archivo JSON
+    async function loadProducts() {
+        try {
+            const response = await fetch("json/products.json"); // Ruta al archivo JSON
+            products = await response.json();
+            filteredProducts = [...products];
+
+            if (busca) {
+                applyFilters(); // Filtrar productos según búsqueda inicial
+            } else {
+                renderProducts(products); // Mostrar todos los productos inicialmente
+            }
+        } catch (error) {
+            console.error("Error al cargar productos:", error);
+            productGrid.innerHTML = "<p class='text-center text-danger'>Error al cargar los productos.</p>";
+        }
+    }
+    
     // Renderizar productos
     function renderProducts(productsToRender) {
         productGrid.innerHTML = ""; // Limpiar productos existentes
@@ -44,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const productCard = document.createElement("div");
             productCard.classList.add("col-md-4", "mb-4");
             productCard.innerHTML = `
+            <a href="product.html?id=${product.id}" class="text-decoration-none text-dark">
                 <div class="product-card text-center p-3 border rounded">
                     <img src="${product.image}" alt="${product.name}" class="img-fluid mb-3">
                     <h5 class="product-title">${product.name}</h5>
@@ -51,9 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="product-rating mb-2">
                         ${renderStars(product.rating)}
                     </div>
-                    <p class="product-price fw-bold text-primary">$${product.price.toFixed(2)}</p>
+                    <p class="product-price fw-bold text-primary">${formatPrice(product.price)}</p>
                 </div>
-            `;
+            </a>
+        `;
             productGrid.appendChild(productCard);
         });
     }
@@ -73,16 +101,32 @@ document.addEventListener("DOMContentLoaded", function () {
         return starsHTML;
     }
 
-    // Filtros dinámicos
     function updateSelectedFilter(filterGroup) {
         const items = filterGroup.querySelectorAll(".list-group-item");
         items.forEach(item => {
             item.addEventListener("click", () => {
-                item.classList.toggle("selected");
-                applyFilters();
+                if (filterGroup.id === "category-filter") {
+                    // Manejo especial para categorías
+                    if (item.dataset.category === "Todos") {
+                        // Si selecciona "Todos", desmarcar otras categorías
+                        items.forEach(i => i.classList.remove("selected"));
+                        item.classList.add("selected");
+                        searchInput.value = busca = "";
+                    } else {
+                        // Si selecciona otra categoría, desmarcar "Todos"
+                        const allItem = Array.from(items).find(i => i.dataset.category === "Todos");
+                        allItem.classList.remove("selected");
+                        item.classList.toggle("selected");
+                    }
+                } else {
+                    // Para otros filtros (marca, color, calificación), solo alternar selección
+                    item.classList.toggle("selected");
+                }
+                applyFilters(); // Aplicar filtros después de cada selección
             });
         });
     }
+    
 
     function applyFilters() {
         let filtered = [...products];
@@ -90,7 +134,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Filtro por categoría
         const selectedCategories = Array.from(categoryFilter.querySelectorAll(".selected"))
             .map(item => item.dataset.category);
-        if (selectedCategories.length > 0) {
+
+        if (selectedCategories.includes("Todos") || selectedCategories.length === 0) {
+            // No aplicar filtro de categorías si "Todos" está seleccionado o no hay ninguna categoría seleccionada
+        } else {
             filtered = filtered.filter(product => selectedCategories.includes(product.category));
         }
 
@@ -103,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Filtro por precio
         const maxPrice = parseInt(priceFilter.value, 10);
-        priceValue.textContent = `$${maxPrice}`;
+        priceValue.textContent = `${formatPrice(maxPrice)}`;
         filtered = filtered.filter(product => product.price <= maxPrice);
 
         // Filtro por color
@@ -122,13 +169,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Filtro por búsqueda
-        const query = searchInput.value.trim().toLowerCase();
-        if (query !== "") {
+        if ( !selectedCategories.includes("Todos") && (busca !== "") && (valorURL == true)) {
             filtered = filtered.filter(product =>
-                product.name.toLowerCase().includes(query) ||
-                product.category.toLowerCase().includes(query) ||
-                product.brand.toLowerCase().includes(query)
+                product.name.toLowerCase().includes(busca) ||
+                product.category.toLowerCase().includes(busca) ||
+                product.brand.toLowerCase().includes(busca)
             );
         }
 
@@ -148,12 +193,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
-        
-    // Event listeners
-    searchForm.addEventListener("submit", (e) => {
-        e.preventDefault(); // Evitar recargar la página
-        applyFilters();
-    });
+
+    // Cargar productos al inicializar
+    loadProducts();
 
     priceFilter.addEventListener("input", applyFilters);
     sortPrice.addEventListener("change", applyFilters);
@@ -165,37 +207,12 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSelectedFilter(ratingFilter);
 
     // Renderizar productos iniciales
-    renderProducts(products);
+    if (valorURL == true) {
+        applyFilters(); // Mostrar sólo productos aplicados a un filtro
+    } else {
+        renderProducts(products); // Mostrar todos los productos si no hay búsqueda
+    }    
+
+    // Configurar valor inicial del input de búsqueda
+    searchInput.value = busca;
 });
-/*
-    // Búsqueda por Nombre, Categoría o Marca
-     searchForm.addEventListener("submit", (e) => {
-        e.preventDefault(); // Evitar recargar la página
-        const query = searchInput.value.trim().toLowerCase(); // Obtener texto de búsqueda
-
-        // Filtrar productos que coincidan con la búsqueda
-        const searchedProducts = products.filter(product =>
-            product.name.toLowerCase().includes(query) ||
-            product.category.toLowerCase().includes(query) ||
-            product.brand.toLowerCase().includes(query)
-        );
-
-        //Renderizar resultados
-        renderProducts(searchedProducts);
-
-        // Mostrar mensaje si no hay resultados
-        if (searchedProducts.length === 0) {
-            productGrid.innerHTML = "<p class='text-center'>No se encontraron productos.</p>";
-        }
-    });
-
-    // Inicialización
-    renderProducts(products);
-    updateSelectedFilter(categoryFilter);
-    updateSelectedFilter(brandFilter);
-    updateSelectedFilter(colorFilter);
-    updateSelectedFilter(ratingFilter);
-
-    priceFilter.addEventListener("input", applyFilters);
-    sortPrice.addEventListener("change", applyFilters);
-});*/

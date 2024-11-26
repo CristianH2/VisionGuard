@@ -1,0 +1,40 @@
+/* Estilo para las imágenes en miniatura */
+#product-thumbnails img {
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+#product-thumbnails img:hover,
+#product-thumbnails img.active {
+    border-color: #11929e;
+}
+
+/* Estilo para la sección de productos similares */
+#similar-products .product-card {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+#similar-products .product-card:hover {
+    transform: scale(1.05);
+}
+
+
+/* Estilo base para las tarjetas de producto */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza el efecto */
+    cursor: pointer; /* Indica que es interactivo */
+}
+
+/* Efecto al pasar el mouse */
+.product-card:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al 105% */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+}
+

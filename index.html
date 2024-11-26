@@ -29,8 +29,14 @@
 
                 <!-- Formulario de búsqueda -->
                 <div class="col-6 col-ms-auto">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <form class="d-flex" role="search" method="GET" action="products.html">
+                        <input 
+                            id="search-input"
+                            class="form-control me-2" 
+                            type="search" 
+                            name="busca" 
+                            placeholder="Buscar" 
+                            aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
@@ -52,7 +58,7 @@
                 </div>
             </div>
         </nav>
-        <!-- Barra Filtro -->>
+        <!-- Barra Filtro -->
         <div id="barraFiltro" class="container-fluid text-center bg-tema-tienda">
             <div class="row align-items-center p-1">
                 <div class="col-12 m-auto">
