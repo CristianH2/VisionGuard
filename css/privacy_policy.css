@@ -1,0 +1,41 @@
+.page-header{
+    text-align: center;
+    padding-top: 25px;
+}
+
+.page-header p{
+    font-size: 18px;
+}
+
+
+.privacy-content {
+    background-color: rgb(238, 238, 238);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.privacy-content h2 {
+    font-size: 1.75rem;
+    color: #333;
+}
+
+.privacy-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    background-color: #11929e;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #006f79;
+}

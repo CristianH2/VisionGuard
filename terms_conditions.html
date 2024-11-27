@@ -4,7 +4,7 @@
     <!-- Metadatos esenciales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Vision Guard</title>
+    <title>Términos y Condiciones</title>
     <link rel="icon" type="image/png" href="img/VisionGuard_Icon.png">
 
     <!-- Bootstrap CSS -->
@@ -15,7 +15,7 @@
 
     <!-- Estilo adicional -->
     <link rel="stylesheet" href="css/header_footer.css">
-    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/terms_conditions.css">
 </head>
 <body>
     <!-- Header -->
@@ -31,7 +31,7 @@
                 
                 <!-- Formulario de búsqueda -->
                 <div class="col-6 col-ms-auto">
-                    <form class="d-flex" role="search" method="GET" action="#">
+                    <form class="d-flex" role="search" method="GET" action="products.html">
                         <input 
                             id="search-input"
                             class="form-control me-2" 
@@ -42,8 +42,6 @@
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
-
-
 
                 <!-- Menú colapsable -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,92 +74,42 @@
     </header>
 
     <!-- Contenido principal -->
-    <main class="container mt-4">
-        <div class="row">
-            <!-- Ruta de navegación -->
-            <div class="col-12 mb-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Video Vigilancia</li>
-                    </ol>
-                </nav>
+    <main>
+        <div class="container">
+            <!-- Encabezado -->
+            <div class="page-header">
+                <h1>Términos y Condiciones</h1>
+                <p class="lead">Por favor, lea atentamente estos términos y condiciones antes de usar nuestro sitio web.</p>
             </div>
-        </div>
-
-        <div class="row">
-            <!-- Filtros (Lado Derecho) -->
-            <aside class="col-md-3">
-                <!-- Filtro por Categorías -->
-                <div class="mb-4">
-                    <h5>Categorías</h5>
-                    <ul class="list-group" id="category-filter">
-                        <li class="list-group-item" data-category="Todos">Todos</li>
-                        <li class="list-group-item" data-category="Cámaras">Cámaras</li>
-                        <li class="list-group-item" data-category="Grabadores">Grabadores</li>
-                        <li class="list-group-item" data-category="Accesorios">Accesorios</li>
-                    </ul>
+    
+            <!-- Sección de contenido -->
+            <div class="terms-content">
+                <h2>1. Aceptación de los Términos</h2>
+                <p>Al acceder y usar este sitio web, usted acepta cumplir con estos términos y condiciones, que pueden ser modificados en cualquier momento. Si no está de acuerdo con los términos, le pedimos que no use nuestro sitio web.</p>
+    
+                <h2>2. Uso del Sitio</h2>
+                <p>El contenido de este sitio web, incluyendo texto, imágenes, productos y servicios, está destinado solo para su uso personal y no comercial. Usted se compromete a no utilizar este sitio web para actividades ilegales o no autorizadas.</p>
+    
+                <h2>3. Propiedad Intelectual</h2>
+                <p>Todos los derechos de propiedad intelectual sobre el contenido del sitio, incluidos los derechos de autor y las marcas comerciales, son propiedad de la tienda en línea o sus respectivos propietarios. Ningún material de este sitio puede ser reproducido sin el consentimiento expreso de los propietarios.</p>
+    
+                <h2>4. Política de Privacidad</h2>
+                <p>El manejo de la información personal de nuestros usuarios está regido por nuestra <a href="privacy_policy.html" target="_blank">Política de Privacidad</a>, que puede consultarse en cualquier momento desde este sitio.</p>
+    
+                <h2>5. Responsabilidad</h2>
+                <p>No nos hacemos responsables de los daños directos o indirectos derivados del uso o imposibilidad de uso de este sitio web, incluyendo, pero no limitado a, pérdida de datos o ganancias.</p>
+    
+                <h2>6. Modificación de los Términos</h2>
+                <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones serán publicadas en esta página, y se considerará que usted ha aceptado los nuevos términos al continuar utilizando el sitio.</p>
+    
+                <h2>7. Ley Aplicable</h2>
+                <p>Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes del país en el que se encuentra la tienda en línea, sin dar efecto a sus principios de conflicto de leyes.</p>
+    
+                <div class="text-center">
+                    <a href="index.html" class="btn btn-primary">Volver al inicio</a>
                 </div>
-
-                <!-- Filtro por Marca -->
-                <div class="mb-4">
-                    <h5>Marca</h5>
-                    <ul class="list-group" id="brand-filter">
-                        <li class="list-group-item" data-brand="Marca 1">Marca 1</li>
-                        <li class="list-group-item" data-brand="Marca 2">Marca 2</li>
-                        <li class="list-group-item" data-brand="Marca 3">Marca 3</li>
-                    </ul>
-                </div>
-
-                <!-- Filtro por Rango de Precios -->
-                <div class="mb-4">
-                    <h5>Rango de Precios</h5>
-                    <input type="range" id="price-filter" class="form-range" min="0" max="50000" step="100" value="50000">
-                    <p class="text-muted mt-2">Desde $0 hasta <span id="price-value">$50000</span></p>
-                </div>
-
-                <!-- Filtro por Color -->
-                <div class="mb-4">
-                    <h5>Color</h5>
-                    <ul class="list-group" id="color-filter">
-                        <li class="list-group-item" data-color="Negro">
-                            <span class="badge bg-dark rounded-circle me-2">&nbsp;</span>Negro
-                        </li>
-                        <li class="list-group-item" data-color="Blanco">
-                            <span class="badge bg-light rounded-circle border me-2">&nbsp;</span>Blanco
-                        </li>
-                        <li class="list-group-item" data-color="Azul">
-                            <span class="badge bg-primary rounded-circle me-2">&nbsp;</span>Azul
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Filtro por Estrellas -->
-                <div class="mb-4">
-                    <h5>Calificación</h5>
-                    <ul class="list-group" id="rating-filter">
-                        <li class="list-group-item" data-rating="5">5 Estrellas</li>
-                        <li class="list-group-item" data-rating="4">4 Estrellas o más</li>
-                        <li class="list-group-item" data-rating="3">3 Estrellas o más</li>
-                        <li class="list-group-item" data-rating="2">2 Estrellas o más</li>
-                        <li class="list-group-item" data-rating="1">1 Estrella o más</li>
-                    </ul>
-                </div>
-            </aside>
-
-            <!-- Ordenar por precio -->
-            <section class="col-md-9">
-                <div class="d-flex justify-content-end mb-3">
-                    <select id="sort-price" class="form-select w-auto">
-                        <option value="default">Ordenar por</option>
-                        <option value="asc">Menor precio</option>
-                        <option value="desc">Mayor precio</option>
-                    </select>
-                </div>
-
-                <!-- Cuadrícula de productos -->
-                <div class="row" id="product-grid"></div>
-            </section>
+            </div>
+    
         </div>
     </main>
 

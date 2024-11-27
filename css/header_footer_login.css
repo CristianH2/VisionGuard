@@ -4,9 +4,7 @@
     margin-bottom: 100px;
 }
 
-
 /* ==== Temática General ==== */
-
 .bg-tema-tienda {
     background-color: #11929e; /* Fondo verde azulado */
     color: #ffffff; /* Texto blanco */
@@ -16,27 +14,4 @@
     background: white;
     border-radius: 10px;
     border: 5px #ffffff solid;
-}
-
-
-/* === Estilo general para el pie de página === */
-footer {
-    background-color: #11929e; /* Fondo temático */
-    color: #ffffff; /* Texto blanco */
-    padding: 20px; /* Espaciado interno */
-}
-
-footer h5 {
-    font-size: 1.2rem; /* Tamaño del título */
-    margin-bottom: 15px; /* Espaciado inferior */
-}
-
-footer p,
-footer a {
-    font-size: 0.9rem; /* Texto más pequeño */
-    line-height: 1.5; /* Altura de línea */
-}
-
-footer a:hover {
-    text-decoration: underline; /* Subrayado al pasar el mouse */
 }

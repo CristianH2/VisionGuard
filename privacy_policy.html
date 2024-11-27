@@ -4,7 +4,7 @@
     <!-- Metadatos esenciales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Vision Guard</title>
+    <title>Politica de Privacidad</title>
     <link rel="icon" type="image/png" href="img/VisionGuard_Icon.png">
 
     <!-- Bootstrap CSS -->
@@ -15,7 +15,7 @@
 
     <!-- Estilo adicional -->
     <link rel="stylesheet" href="css/header_footer.css">
-    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/privacy_policy.css">
 </head>
 <body>
     <!-- Header -->
@@ -31,7 +31,7 @@
                 
                 <!-- Formulario de búsqueda -->
                 <div class="col-6 col-ms-auto">
-                    <form class="d-flex" role="search" method="GET" action="#">
+                    <form class="d-flex" role="search" method="GET" action="products.html">
                         <input 
                             id="search-input"
                             class="form-control me-2" 
@@ -42,8 +42,6 @@
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
-
-
 
                 <!-- Menú colapsable -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,92 +74,41 @@
     </header>
 
     <!-- Contenido principal -->
-    <main class="container mt-4">
-        <div class="row">
-            <!-- Ruta de navegación -->
-            <div class="col-12 mb-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Video Vigilancia</li>
-                    </ol>
-                </nav>
+    <main>
+        <div class="container">
+            <!-- Encabezado -->
+            <div class="page-header">
+                <h1>Política de Privacidad</h1>
+                <p class="lead">Tu privacidad es importante para nosotros. A continuación, te explicamos cómo recopilamos, usamos y protegemos tu información personal.</p>
             </div>
-        </div>
 
-        <div class="row">
-            <!-- Filtros (Lado Derecho) -->
-            <aside class="col-md-3">
-                <!-- Filtro por Categorías -->
-                <div class="mb-4">
-                    <h5>Categorías</h5>
-                    <ul class="list-group" id="category-filter">
-                        <li class="list-group-item" data-category="Todos">Todos</li>
-                        <li class="list-group-item" data-category="Cámaras">Cámaras</li>
-                        <li class="list-group-item" data-category="Grabadores">Grabadores</li>
-                        <li class="list-group-item" data-category="Accesorios">Accesorios</li>
-                    </ul>
+            <!-- Sección de contenido -->
+            <div class="privacy-content">
+                <h2>1. Información que Recopilamos</h2>
+                <p>Recopilamos información personal identificable, como tu nombre, dirección de correo electrónico, dirección de envío, y detalles de pago cuando realizas una compra o te registras en nuestro sitio web. También podemos recopilar información no personal, como tu dirección IP y tipo de dispositivo, para mejorar la experiencia de usuario.</p>
+
+                <h2>2. Uso de la Información</h2>
+                <p>La información que recopilamos se utiliza para procesar tus pedidos, enviarte actualizaciones sobre el estado de tu compra, ofrecerte un servicio al cliente más eficiente, y enviarte información promocional si así lo has autorizado. No vendemos ni compartimos tu información con terceros sin tu consentimiento, excepto cuando sea necesario para completar una transacción o cumplir con la ley.</p>
+
+                <h2>3. Cookies</h2>
+                <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Las cookies son pequeños archivos de texto almacenados en tu dispositivo que nos permiten recordar tus preferencias y personalizar tu experiencia. Puedes desactivar las cookies en la configuración de tu navegador, pero esto puede afectar el funcionamiento de nuestro sitio.</p>
+
+                <h2>4. Seguridad de los Datos</h2>
+                <p>Tomamos medidas de seguridad adecuadas para proteger tus datos personales, como el uso de cifrado SSL en nuestras transacciones. Sin embargo, ninguna transmisión de datos a través de internet es completamente segura, por lo que no podemos garantizar una seguridad absoluta.</p>
+
+                <h2>5. Acceso y Actualización de Tu Información</h2>
+                <p>Puedes acceder, corregir o actualizar la información personal que tenemos de ti en cualquier momento a través de tu cuenta en nuestro sitio web o contactándonos directamente. Si deseas eliminar tu cuenta, también puedes hacerlo siguiendo el procedimiento indicado en nuestro sitio.</p>
+
+                <h2>6. Enlaces a Otros Sitios</h2>
+                <p>Nuestro sitio puede contener enlaces a otros sitios web. No somos responsables de las políticas de privacidad o del contenido de esos sitios, por lo que te recomendamos leer sus políticas de privacidad antes de proporcionar cualquier información personal.</p>
+
+                <h2>7. Cambios a Esta Política</h2>
+                <p>Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Las modificaciones serán publicadas en esta página, y se considerará que has aceptado los cambios al continuar utilizando nuestro sitio web después de la publicación de dichos cambios.</p>
+
+                <div class="text-center">
+                    <a href="index.html" class="btn btn-primary">Volver al inicio</a>
                 </div>
-
-                <!-- Filtro por Marca -->
-                <div class="mb-4">
-                    <h5>Marca</h5>
-                    <ul class="list-group" id="brand-filter">
-                        <li class="list-group-item" data-brand="Marca 1">Marca 1</li>
-                        <li class="list-group-item" data-brand="Marca 2">Marca 2</li>
-                        <li class="list-group-item" data-brand="Marca 3">Marca 3</li>
-                    </ul>
-                </div>
-
-                <!-- Filtro por Rango de Precios -->
-                <div class="mb-4">
-                    <h5>Rango de Precios</h5>
-                    <input type="range" id="price-filter" class="form-range" min="0" max="50000" step="100" value="50000">
-                    <p class="text-muted mt-2">Desde $0 hasta <span id="price-value">$50000</span></p>
-                </div>
-
-                <!-- Filtro por Color -->
-                <div class="mb-4">
-                    <h5>Color</h5>
-                    <ul class="list-group" id="color-filter">
-                        <li class="list-group-item" data-color="Negro">
-                            <span class="badge bg-dark rounded-circle me-2">&nbsp;</span>Negro
-                        </li>
-                        <li class="list-group-item" data-color="Blanco">
-                            <span class="badge bg-light rounded-circle border me-2">&nbsp;</span>Blanco
-                        </li>
-                        <li class="list-group-item" data-color="Azul">
-                            <span class="badge bg-primary rounded-circle me-2">&nbsp;</span>Azul
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Filtro por Estrellas -->
-                <div class="mb-4">
-                    <h5>Calificación</h5>
-                    <ul class="list-group" id="rating-filter">
-                        <li class="list-group-item" data-rating="5">5 Estrellas</li>
-                        <li class="list-group-item" data-rating="4">4 Estrellas o más</li>
-                        <li class="list-group-item" data-rating="3">3 Estrellas o más</li>
-                        <li class="list-group-item" data-rating="2">2 Estrellas o más</li>
-                        <li class="list-group-item" data-rating="1">1 Estrella o más</li>
-                    </ul>
-                </div>
-            </aside>
-
-            <!-- Ordenar por precio -->
-            <section class="col-md-9">
-                <div class="d-flex justify-content-end mb-3">
-                    <select id="sort-price" class="form-select w-auto">
-                        <option value="default">Ordenar por</option>
-                        <option value="asc">Menor precio</option>
-                        <option value="desc">Mayor precio</option>
-                    </select>
-                </div>
-
-                <!-- Cuadrícula de productos -->
-                <div class="row" id="product-grid"></div>
-            </section>
+            </div>
         </div>
     </main>
 
