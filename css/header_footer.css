@@ -47,3 +47,16 @@ footer a {
 footer a:hover {
     text-decoration: underline; /* Subrayado al pasar el mouse */
 }
+
+
+/* Footer al fondo */
+html, body {
+    height: 100%; /* Asegura que la página ocupe todo el alto de la ventana */
+    margin: 0; /* Elimina el margen por defecto */
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+}
+
+.content {
+    flex: 1; /* Esto asegura que el contenido ocupe todo el espacio disponible */
+}

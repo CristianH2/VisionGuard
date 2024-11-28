@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const quantityInput = document.getElementById("quantity");
     const similarProducts = document.getElementById("similar-products");
     const reviews = document.getElementById("reviews");
+    const cartCount = document.getElementById("cart-count");
 
     // Obtener ID del producto desde la URL
     const params = new URLSearchParams(window.location.search);
@@ -94,52 +95,101 @@ document.addEventListener("DOMContentLoaded", async function () {
                     <div class="product-rating mb-2">
                         ${renderStars(similarProduct.rating)}
                     </div>
-                    <p class="product-price fw-bold text-primary">${formatPrice(product.price)}</p>
+                    <p class="product-price fw-bold text-primary">${formatPrice(similarProduct.price)}</p>
                 </div>
             </a>
         `;
-            // card.innerHTML = `
-            //     <a href="product.html?id=${similarProduct.id}" class="text-decoration-none text-dark">
-            //         <div class="product-card text-center p-3 border rounded">
-            //             <img src="${similarProduct.image}" alt="${similarProduct.name}" class="img-fluid mb-3">
-            //             <h6 class="product-title">${similarProduct.name}</h6>
-            //             <p class="product-price text-primary">${formatPrice(similarProduct.price)}</p>
-            //         </div>
-            //     </a>
-            // `;
             similarProducts.appendChild(card);
         });
 
         // Mostrar opiniones (simulación)
-        reviews.innerHTML = `
+        reviews.innerHTML = ` 
             <p><strong>Valoración:</strong> ${renderStars(product.rating)}</p>
             <p>Aquí aparecerán las opiniones de los usuarios.</p>
         `;
+
+        // Función para agregar al carrito
+        addToCartBtn.addEventListener("click", () => {
+            let quantity = parseInt(quantityInput.value);
+
+            // Validar cantidad antes de agregar al carrito
+            if (quantity <= 0) {
+                quantity = 1; // Si la cantidad es menor o igual a 0, se restablece a 1
+                quantityInput.value = 1; // Restablecer el valor en el input
+            }
+
+            if (quantity > product.stock) {
+                alert("No hay suficiente stock disponible.");
+                return;
+            }
+
+            addToCart(product, quantity);
+        });
+
+        // Función para agregar productos al carrito en localStorage
+        function addToCart(product, quantity) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const existingProduct = cart.find(item => item.id === product.id);
+
+            if (existingProduct) {
+                existingProduct.quantity += quantity;
+            } else {
+                cart.push({ id: product.id, name: product.name, price: product.price, quantity: quantity, image: product.image });
+            }
+
+            // Guardar el carrito actualizado en localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Actualizar el contador del carrito
+            updateCartCount();
+        }
+
+        // Función para actualizar el contador de productos en el carrito
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Actualizar contador de carrito al cargar la página
+        updateCartCount();
+
+        // Función para validar la cantidad en tiempo real
+        quantityInput.addEventListener("input", () => {
+            let quantity = parseInt(quantityInput.value);
+
+            // Si la cantidad es menor que 1, se restablece a 1
+            if (quantity < 1 || isNaN(quantity)) {
+                quantityInput.value = 1;
+            }
+        });
+
+        // Formatear precios
+        function formatPrice(price) {
+            return new Intl.NumberFormat("es-MX", {
+                style: "currency",
+                currency: "MXN",
+            }).format(price);
+        }
+
+        // Generar estrellas para la valoración
+        function renderStars(rating) {
+            let starsHTML = "";
+            for (let i = 1; i <= 5; i++) {
+                if (i <= Math.floor(rating)) {
+                    starsHTML += `<i class="bi bi-star-fill text-warning"></i>`;
+                } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
+                    starsHTML += `<i class="bi bi-star-half text-warning"></i>`;
+                } else {
+                    starsHTML += `<i class="bi bi-star text-muted"></i>`;
+                }
+            }
+            return starsHTML;
+        }
+
     } catch (error) {
         console.error("Error al cargar el producto:", error);
         document.body.innerHTML = "<p class='text-center text-danger'>Error al cargar los datos del producto.</p>";
-    }
-
-    // Formatear precios
-    function formatPrice(price) {
-        return new Intl.NumberFormat("es-MX", {
-            style: "currency",
-            currency: "MXN",
-        }).format(price);
-    }
-
-    // Generar estrellas para la valoración
-    function renderStars(rating) {
-        let starsHTML = "";
-        for (let i = 1; i <= 5; i++) {
-            if (i <= Math.floor(rating)) {
-                starsHTML += `<i class="bi bi-star-fill text-warning"></i>`;
-            } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
-                starsHTML += `<i class="bi bi-star-half text-warning"></i>`;
-            } else {
-                starsHTML += `<i class="bi bi-star text-muted"></i>`;
-            }
-        }
-        return starsHTML;
     }
 });
