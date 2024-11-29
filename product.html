@@ -20,12 +20,12 @@
         <!-- Barra de navegación -->
         <nav id="barraNavegacion" class="navbar navbar-expand-sm navbar-light ">
             <div class="container">
-
+    
                 <!-- Logo de la empresa -->
                 <a class="navbar-brand" href="index.html">
                     <img src="img/VisionGuard.png" alt="VisionGuard" width="200">
                 </a>
-                
+    
                 <!-- Formulario de búsqueda -->
                 <div class="col-6 col-ms-auto">
                     <form class="d-flex" role="search" method="GET" action="products.html">
@@ -39,7 +39,7 @@
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
-
+                
                 <!-- Menú colapsable -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,19 +57,20 @@
                 </div>
             </div>
         </nav>
+        <!-- Barra Filtro -->
         <div id="barraFiltro" class="container-fluid text-center bg-tema-tienda">
             <div class="row align-items-center p-1">
                 <div class="col-12 m-auto">
-                    <a class="btn me-5" href="#" role="button">Video Vigilancia</a>
-                    <a class="btn me-5" href="#" role="button">Cableado</a>
-                    <a class="btn me-5" href="#" role="button">Alarmas</a>
-                    <a class="btn me-5" href="#" role="button">Control de Acceso</a>
-                    <a class="btn me-5" href="#" role="button">Automatización del Hogar</a>
+                    <a class="btn me-5" href="products.html" role="button">Productos</a>
+                    <a class="btn me-5" href="products.html?estrellas=5" role="button">Mayor Valoración</a>
+                    <a class="btn me-5" href="contacto.html" role="button">Contactos</a>
+                    <a class="btn me-5" href="ayuda.html" role="button">Ayuda</a>
+                    <a class="btn me-5" href="instalacion.html" role="button">Instalación</a>
                 </div>
             </div>
         </div>
     </header>
-
+    
     <!-- Contenido principal -->
     <main class="container mt-4">
         <!-- Ruta de navegación -->
@@ -118,13 +119,13 @@
     
         <!-- Sección de productos similares -->
         <div class="mt-5">
-            <h2>Productos Similares</h2>
+            <h5 class="text-with-line">Productos Similares</h5>
             <div class="row" id="similar-products"></div>
         </div>
     
         <!-- Sección de valoraciones y comentarios -->
         <div class="mt-5">
-            <h2>Opiniones</h2>
+            <h5 class="text-with-line">Opiniones</h5>
             <div id="reviews"></div>
         </div>
     
@@ -142,18 +143,18 @@
     <footer class="bg-tema-tienda text-light mt-4 py-4">
         <div class="container">
             <div class="row">
-                <!-- Columna 1: Contacto -->
+               <!-- Columna 1: Contacto -->
                 <div class="col-md-3 border-end">
                     <h5 class="text-uppercase">Contacto</h5>
                     <ul class="list-unstyled">
                         <li>Vision Guard</li>
                         <li>Email: visionguard@vgmail.com</li>
-                        <li>Teléfono: +52 123 456 7890</li>
+                        <li>Teléfono: +52 645 213 8079</li>
                     </ul>
                     <h6 class="text-uppercase">¿Tienes alguna duda?</h6>
                     <div class="d-flex align-items-center mb-3">
                         <i class="bi bi-headset" style="font-size: 2rem;"></i>
-                        <span class="ms-2">+52 800 123 4567 (todo el día)</span>
+                        <span class="ms-2">+52 800 243 7192 (todo el día)</span>
                     </div>
                     <div class="d-flex">
                         <a href="https://facebook.com" target="_blank" class="text-light me-3">
@@ -175,10 +176,10 @@
                 <div class="col-md-2">
                     <h5 class="text-uppercase">Productos</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">Producto 1</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Producto 2</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Producto 3</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Producto 4</a></li>
+                        <li><a href="products.html?busca=cámara" class="text-light text-decoration-none">· Cámaras HD</a></li>
+                        <li><a href="products.html?busca=dvr" class="text-light text-decoration-none">· Grabadores de Vídeo</a></li>
+                        <li><a href="products.html?busca=kit" class="text-light text-decoration-none">· Kits de instalación</a></li>
+                        <li><a href="products.html?busca=cable" class="text-light text-decoration-none">· Cables de variedad</a></li>
                     </ul>
                 </div>
     
@@ -186,9 +187,9 @@
                 <div class="col-md-2">
                     <h5 class="text-uppercase">Sobre la Empresa</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">Nuestra Historia</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Misión y Visión</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Equipo</a></li>
+                        <li><a href="info.html" class="text-light text-decoration-none">· Nuestra Historia</a></li>
+                        <li><a href="info.html#mision-vision" class="text-light text-decoration-none">· Misión y Visión</a></li>
+                        <li><a href="info.html#equipo" class="text-light text-decoration-none">· Equipo</a></li>
                     </ul>
                 </div>
     
@@ -196,16 +197,16 @@
                 <div class="col-md-2">
                     <h5 class="text-uppercase">Información</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">Política de Privacidad</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Términos y Condiciones</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Preguntas Frecuentes</a></li>
+                        <li><a href="privacy_policy.html" class="text-light text-decoration-none">· Política de Privacidad</a></li>
+                        <li><a href="terms_conditions.html" class="text-light text-decoration-none">· Términos y Condiciones</a></li>
+                        <li><a href="ayuda.html" class="text-light text-decoration-none">· Preguntas Frecuentes</a></li>
                     </ul>
                 </div>
     
                 <!-- Columna 5: Créditos -->
                 <div class="col-md-3">
                     <h5 class="text-uppercase">Créditos</h5>
-                    <p>Diseñado y desarrollado por <a href="https://miempresa.com" target="_blank" class="text-light text-decoration-none">Vision Guard</a>.</p>
+                    <p>Diseñado y desarrollado por <a href="info.html" target="_blank" class="text-light text-decoration-none">Vision Guard</a>.</p>
                     <p>© 2024 Todos los derechos reservados.</p>
                 </div>
             </div>

@@ -1,0 +1,33 @@
+.box{
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.temeButton{
+    background-color: #11929e;
+    border: #11929e;
+    color: white;
+    width: 250px;
+}
+
+.temeButton:hover{
+    background-color: #006f79;
+    border: #006f79;
+    color: white;
+}
+
+.bor-top{
+    border-top: 1px black solid;
+    padding-top: 20px;
+}
+
+h1{
+    border-bottom: 1px #000000 solid;
+    padding-bottom: 25PX;
+}
+
+h4{
+    padding-top: 25px;
+}

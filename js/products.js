@@ -1,39 +1,39 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const productGrid = document.getElementById("product-grid");
     const searchInput = document.getElementById("search-input");
+    const priceValue = document.getElementById("price-value");
+    const sortPrice = document.getElementById("sort-price");
+
+    // Filtros de precio, categoría, marca, color y estrellas
+    const priceFilter = document.getElementById("price-filter");
     const categoryFilter = document.getElementById("category-filter");
     const brandFilter = document.getElementById("brand-filter");
-    const priceFilter = document.getElementById("price-filter");
-    const priceValue = document.getElementById("price-value");
     const colorFilter = document.getElementById("color-filter");
     const ratingFilter = document.getElementById("rating-filter");
-    const sortPrice = document.getElementById("sort-price");
 
     // Variables globales
     let products = [];
     let filteredProducts = [];
 
-    // Leer el parámetro 'busca' de la URL
+    // Leer el parámetro de la URL
     const urlParam = window.location.search;
     console.log(urlParam);
 
-    // Creamos una instancia de URLSeacrhParams
+    // Creamos una instancia de URLSearchParams
     const parametrosURL = new URLSearchParams(urlParam);
     console.log(parametrosURL);
 
-    // Recorriendo todos los parámetros de la URL
-    for (let valoresURL of parametrosURL){
-        console.log(valoresURL);
-    }
-
     // Obteniendo los valores
-    var busca = parametrosURL.get('busca');
-    console.info('Peoducto buscado: '+ busca);
+    var buscaOP = parametrosURL.get('busca');
+    var categoriaOP = parametrosURL.get('categoria');
+    var marcaOP = parametrosURL.get('marca');
+    var estrellasOP = parametrosURL.get('estrellas');
 
-    // Verificar sis existe un parámetro en la URL
-    let valorURL = parametrosURL.has('busca');
-    console.log(valorURL);
+    // Filtros existentes en la URL
+    let buscaValorURL = parametrosURL.has('busca');
+    let categoriaValorURL = parametrosURL.has('categoria');
+    let marcaValorURL = parametrosURL.has('marca');
+    let estrellasValorURL = parametrosURL.has('estrellas');
 
     // Función para asignar formato de moneda
     function formatPrice(price) {
@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
             minimumFractionDigits: 2
         }).format(price);
     }
-    
 
     // Función para cargar productos desde un archivo JSON
     async function loadProducts() {
@@ -52,18 +51,27 @@ document.addEventListener("DOMContentLoaded", function () {
             products = await response.json();
             filteredProducts = [...products];
 
-            if (busca) {
+            // Aplicar filtros iniciales si se encuentran parámetros en la URL
+            if (buscaOP) {
                 applyFilters(); // Filtrar productos según búsqueda inicial
             } else {
                 renderProducts(products); // Mostrar todos los productos inicialmente
             }
+
+            // Actualizar filtros según los parámetros de la URL
+            updateCategoryFilter();  // Actualizar filtro de categorías
+            updateRatingFilter();    // Actualizar filtro de calificación
+            updateBrandFilter();  // Actualizamos las marcas seleccionadas
+
+            // Aplicar los filtros después de marcar las opciones automáticamente
+            applyFilters();
         } catch (error) {
             console.error("Error al cargar productos:", error);
             productGrid.innerHTML = "<p class='text-center text-danger'>Error al cargar los productos.</p>";
         }
     }
-    
-    // Renderizar productos
+
+    // Función para renderizar productos
     function renderProducts(productsToRender) {
         productGrid.innerHTML = ""; // Limpiar productos existentes
         productsToRender.forEach(product => {
@@ -101,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return starsHTML;
     }
 
+    //Actualizar filtros
     function updateSelectedFilter(filterGroup) {
         const items = filterGroup.querySelectorAll(".list-group-item");
         items.forEach(item => {
@@ -111,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Si selecciona "Todos", desmarcar otras categorías
                         items.forEach(i => i.classList.remove("selected"));
                         item.classList.add("selected");
-                        searchInput.value = busca = "";
+                        searchInput.value = buscaOP = "";
                     } else {
                         // Si selecciona otra categoría, desmarcar "Todos"
                         const allItem = Array.from(items).find(i => i.dataset.category === "Todos");
@@ -126,8 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-    
 
+    // Función para aplicar filtros (ya existe en tu código)
     function applyFilters() {
         let filtered = [...products];
 
@@ -169,11 +178,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        if ( !selectedCategories.includes("Todos") && (busca !== "") && (valorURL == true)) {
+        if ( !selectedCategories.includes("Todos") && (buscaOP !== "") && (buscaValorURL == true)) {
             filtered = filtered.filter(product =>
-                product.name.toLowerCase().includes(busca) ||
-                product.category.toLowerCase().includes(busca) ||
-                product.brand.toLowerCase().includes(busca)
+                product.name.toLowerCase().includes(buscaOP) ||
+                product.category.toLowerCase().includes(buscaOP) ||
+                product.brand.toLowerCase().includes(buscaOP)
             );
         }
 
@@ -191,7 +200,36 @@ document.addEventListener("DOMContentLoaded", function () {
         if (filtered.length === 0) {
             productGrid.innerHTML = "<p class='text-center'>No se encontraron productos.</p>";
         }
+    }
 
+    // Actualizar el filtro de categoría para marcar la categoría seleccionada desde la URL
+    function updateCategoryFilter() {
+        const categoryItems = categoryFilter.querySelectorAll(".list-group-item");
+        categoryItems.forEach(item => {
+            if (item.dataset.category === categoriaOP) {
+                item.classList.add("selected");
+            }
+        });
+    }
+
+    // Actualizar el filtro de estrellas para marcar las estrellas seleccionadas desde la URL
+    function updateRatingFilter() {
+        const ratingItems = ratingFilter.querySelectorAll(".list-group-item");
+        ratingItems.forEach(item => {
+            if (item.dataset.rating === estrellasOP) {
+                item.classList.add("selected");
+            }
+        });
+    }
+
+    // Actualizar el filtro de marca para marcar la marca seleccionada desde la URL
+    function updateBrandFilter() {
+        const brandItems = brandFilter.querySelectorAll(".list-group-item");
+        brandItems.forEach(item => {
+            if (item.dataset.brand === marcaOP) {
+                item.classList.add("selected");
+            }
+        });
     }
 
     // Cargar productos al inicializar
@@ -206,13 +244,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSelectedFilter(colorFilter);
     updateSelectedFilter(ratingFilter);
 
-    // Renderizar productos iniciales
-    if (valorURL == true) {
-        applyFilters(); // Mostrar sólo productos aplicados a un filtro
-    } else {
-        renderProducts(products); // Mostrar todos los productos si no hay búsqueda
-    }    
-
     // Configurar valor inicial del input de búsqueda
-    searchInput.value = busca;
+    searchInput.value = buscaOP;
 });

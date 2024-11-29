@@ -1,0 +1,31 @@
+.formularioInfo {
+    max-width: 800px;
+    margin-top: 50px;
+}
+.form-label {
+    font-weight: bold;
+}
+.btn-custom {
+    background-color: #11929e;
+    color: white;
+    border: #11929e;
+    max-width: 300px;
+    margin: 20px 0 30px 0;
+}
+.btn-custom:hover {
+    background-color: #006f79;
+    border: #006f79;
+    color: white;
+}
+
+.box{
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+h2{
+    border-bottom: 1px #000000 solid;
+    padding-bottom: 25PX;
+}

@@ -38,3 +38,12 @@
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
 }
 
+/* Línea debajo de los títulos */
+.text-with-line {
+    display: inline-block;
+    border-bottom: 2px solid #11929e; /* Línea temática */
+    padding-bottom: 5px; /* Espaciado debajo del texto */
+    margin-bottom: 10px; /* Espaciado inferior */
+    font-weight: bold; /* Texto destacado */
+    color: #333333; /* Color del texto */
+}

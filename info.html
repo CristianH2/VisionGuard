@@ -4,7 +4,7 @@
     <!-- Metadatos esenciales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Vision Guard</title>
+    <title>Sobre Nosotros - Vision Guard</title>
     <link rel="icon" type="image/png" href="img/VisionGuard_Icon.png">
 
     <!-- Bootstrap CSS -->
@@ -13,9 +13,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-    <!-- Estilo adicional -->
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/info.css">
     <link rel="stylesheet" href="css/header_footer.css">
-    <link rel="stylesheet" href="css/products.css">
 </head>
 <body>
     <!-- Header -->
@@ -75,94 +75,75 @@
     </header>
 
     <!-- Contenido principal -->
-    <main class="container mt-4">
-        <div class="row">
-            <!-- Ruta de navegación -->
-            <div class="col-12 mb-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Productos</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Filtros (Lado Derecho) -->
-            <aside class="col-md-3">
-                <!-- Filtro por Categorías -->
-                <div class="mb-4">
-                    <h5>Categorías</h5>
-                    <ul class="list-group" id="category-filter">
-                        <li class="list-group-item" data-category="Todos">Todos</li>
-                        <li class="list-group-item" data-category="Cámaras">Cámaras</li>
-                        <li class="list-group-item" data-category="Grabadores">Grabadores</li>
-                        <li class="list-group-item" data-category="Accesorios">Accesorios</li>
-                    </ul>
-                </div>
-
-                <!-- Filtro por Marca -->
-                <div class="mb-4">
-                    <h5>Marca</h5>
-                    <ul class="list-group" id="brand-filter">
-                        <li class="list-group-item" data-brand="Marca 1">Marca 1</li>
-                        <li class="list-group-item" data-brand="Marca 2">Marca 2</li>
-                        <li class="list-group-item" data-brand="Marca 3">Marca 3</li>
-                    </ul>
-                </div>
-
-                <!-- Filtro por Rango de Precios -->
-                <div class="mb-4">
-                    <h5>Rango de Precios</h5>
-                    <input type="range" id="price-filter" class="form-range" min="0" max="25000" step="100" value="25000">
-                    <p class="text-muted mt-2">Desde $0 hasta <span id="price-value">$25000</span></p>
-                </div>
-
-                <!-- Filtro por Color -->
-                <div class="mb-4">
-                    <h5>Color</h5>
-                    <ul class="list-group" id="color-filter">
-                        <li class="list-group-item" data-color="Negro">
-                            <span class="badge bg-dark rounded-circle me-2">&nbsp;</span>Negro
-                        </li>
-                        <li class="list-group-item" data-color="Blanco">
-                            <span class="badge bg-light rounded-circle border me-2">&nbsp;</span>Blanco
-                        </li>
-                        <li class="list-group-item" data-color="Azul">
-                            <span class="badge bg-primary rounded-circle me-2">&nbsp;</span>Azul
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Filtro por Estrellas -->
-                <div class="mb-4">
-                    <h5>Calificación</h5>
-                    <ul class="list-group" id="rating-filter">
-                        <li class="list-group-item" data-rating="5">5 Estrellas</li>
-                        <li class="list-group-item" data-rating="4">4 Estrellas o más</li>
-                        <li class="list-group-item" data-rating="3">3 Estrellas o más</li>
-                        <li class="list-group-item" data-rating="2">2 Estrellas o más</li>
-                        <li class="list-group-item" data-rating="1">1 Estrella o más</li>
-                    </ul>
-                </div>
-            </aside>
-
-            <!-- Ordenar por precio -->
-            <section class="col-md-9">
-                <div class="d-flex justify-content-end mb-3">
-                    <select id="sort-price" class="form-select w-auto">
-                        <option value="default">Ordenar por</option>
-                        <option value="asc">Menor precio</option>
-                        <option value="desc">Mayor precio</option>
-                    </select>
-                </div>
-
-                <!-- Cuadrícula de productos -->
-                <div class="row" id="product-grid"></div>
-            </section>
-        </div>
-    </main>
+     <main>
+         <div class="container mt-5 box">
+             <h1 class="text-center mb-4">Sobre Vision Guard</h1>
+     
+             <!-- Sección de Historia -->
+             <section id="historia">
+                 <h2 class="mb-4">Nuestra Historia</h2>
+                 <div class="row">
+                     <div class="col-md-6">
+                         <p>Vision Guard comenzó con el objetivo de proporcionar soluciones de seguridad de alta calidad para hogares y empresas. Nos especializamos en cámaras de seguridad, kits de cámaras, y servicios de instalación, ofreciendo productos innovadores y fáciles de usar.</p>
+                         <p>Desde nuestros inicios, hemos crecido rápidamente gracias a la confianza de nuestros clientes y la constante innovación en el campo de la tecnología de seguridad. Nuestro compromiso es ofrecer productos que proporcionen la tranquilidad que nuestros clientes necesitan, con un servicio excepcional y soluciones adaptadas a cada necesidad.</p>
+                     </div>
+                     <div class="col-md-6">
+                         <img src="img/nuestra_historia.jpg" class="img-fluid" alt="Nuestra Historia" />
+                     </div>
+                 </div>
+             </section>
+     
+             <!-- Sección de Misión y Visión -->
+             <section id="mision-vision" class="mt-5 bor-top">
+                 <h2 class="mb-4">Misión y Visión</h2>
+                 <div class="row">
+                     <div class="col-md-6">
+                         <h3><i class="bi bi-chevron-right"></i> Misión</h3>
+                         <p>En Vision Guard, nuestra misión es ofrecer soluciones integrales de seguridad para proteger lo que más importa. Nos dedicamos a proporcionar equipos de última tecnología y servicios de instalación de alta calidad para garantizar la seguridad y tranquilidad de nuestros clientes.</p>
+                     </div>
+                     <div class="col-md-6">
+                        <h3><i class="bi bi-chevron-right"></i> Visión</h3>
+                         <p>Ser la empresa líder en el mercado de soluciones de seguridad, reconocida por su innovación, calidad y compromiso con el cliente. Buscamos expandirnos globalmente y continuar innovando en tecnologías de seguridad para adaptarnos a las necesidades cambiantes del mundo moderno.</p>
+                     </div>
+                 </div>
+             </section>
+     
+             <!-- Sección del Equipo -->
+             <section id="equipo" class="mt-5 bor-top">
+                 <h2 class="mb-4">Nuestro Equipo</h2>
+                 <div class="row">
+                     <!-- Miembro del equipo 1 -->
+                     <div class="col-6">
+                         <div class="card">
+                             <!-- <img src="img/equipo_1.jpg" class="card-img-top" alt="Miembro 1"> -->
+                             <div class="card-body">
+                                 <h5 class="card-title">Julio Armando Pérez</h5>
+                                 <p class="card-text">CEO y Fundador. Con más de 15 años de experiencia en el sector de la tecnología, Julio ha liderado Vision Guard desde su creación, impulsando la innovación y expansión de la empresa.</p>
+                             </div>
+                         </div>
+                     </div>
+     
+                     <!-- Miembro del equipo 2 -->
+                     <div class="col-6">
+                         <div class="card">
+                             <!-- <img src="img/equipo_2.jpg" class="card-img-top" alt="Miembro 2"> -->
+                             <div class="card-body">
+                                 <h5 class="card-title">Cristian Hernández</h5>
+                                 <p class="card-text">Director de Operaciones. Es responsable de la coordinación y gestión de todos los proyectos de instalación, garantizando que nuestros clientes reciban un servicio excepcional.</p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </section>
+     
+             <!-- Sección de Contacto -->
+             <section id="contacto" class="mt-5 text-center">
+                 <h3>¿Quieres saber más sobre nosotros?</h3>
+                 <p>Si tienes alguna pregunta o deseas obtener más información sobre nuestros productos o servicios, no dudes en ponerte en contacto con nosotros.</p>
+                 <a href="contacto.html" class="btn btn-primary temeButton">Contáctanos</a>
+             </section>
+         </div>
+     </main>
 
     <!-- Footer -->
     <footer class="bg-tema-tienda text-light mt-4 py-4">
@@ -238,8 +219,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="js/products.js"></script> <!-- Archivo JavaScript para cargar productos dinámicamente -->
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

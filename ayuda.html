@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos esenciales -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda - Vision Guard</title>
+    <link rel="icon" type="image/png" href="img/VisionGuard_Icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/header_footer.css">
+    <link rel="stylesheet" href="css/ayuda.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Barra de navegación -->
+        <nav id="barraNavegacion" class="navbar navbar-expand-sm navbar-light ">
+            <div class="container">
+    
+                <!-- Logo de la empresa -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/VisionGuard.png" alt="VisionGuard" width="200">
+                </a>
+    
+                <!-- Formulario de búsqueda -->
+                <div class="col-6 col-ms-auto">
+                    <form class="d-flex" role="search" method="GET" action="products.html">
+                        <input 
+                            id="search-input"
+                            class="form-control me-2" 
+                            type="search" 
+                            name="busca" 
+                            placeholder="Buscar" 
+                            aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+                </div>
+                
+                <!-- Menú colapsable -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Opciones del menú -->
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="login.html"><i class="bi bi-person-circle"></i> Iniciar Sesion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html"><i class="bi bi-cart-fill"></i> Carrito</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Barra Filtro -->
+        <div id="barraFiltro" class="container-fluid text-center bg-tema-tienda">
+            <div class="row align-items-center p-1">
+                <div class="col-12 m-auto">
+                    <a class="btn me-5" href="products.html" role="button">Productos</a>
+                    <a class="btn me-5" href="products.html?estrellas=5" role="button">Mayor Valoración</a>
+                    <a class="btn me-5" href="contacto.html" role="button">Contactos</a>
+                    <a class="btn me-5" href="ayuda.html" role="button">Ayuda</a>
+                    <a class="btn me-5" href="instalacion.html" role="button">Instalación</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Página de ayuda -->
+     <main>
+            <div class="container mt-5 box">
+                <h1 class="text-center mb-4">Centro de Ayuda</h1>
+        
+                <!-- Sección de preguntas frecuentes (FAQ) -->
+                <section id="faq">
+                    <h2 class="mb-3">Preguntas Frecuentes</h2>
+                    <div class="accordion" id="faqAccordion">
+                        <!-- Pregunta 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeading1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                                    <b>¿Cómo configurar mi cámara de seguridad?</b>
+                                </button>
+                            </h2>
+                            <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Para configurar tu cámara de seguridad, sigue los pasos detallados en el manual de usuario incluido en el paquete. Si tienes alguna pregunta adicional, no dudes en contactarnos.
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Pregunta 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeading2">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                                    <b>¿Qué hago si mi cámara no está funcionando correctamente?</b>
+                                </button>
+                            </h2>
+                            <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Si tu cámara no está funcionando correctamente, primero asegúrate de que esté correctamente conectada a la red. Si el problema persiste, consulta nuestra guía de solución de problemas o contacta con el soporte técnico.
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Pregunta 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeading3">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                                    <b>¿Cómo solicito el servicio de instalación?</b>
+                                </button>
+                            </h2>
+                            <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Puedes solicitar el servicio de instalación en nuestra página de contacto o llamando a nuestro número de atención al cliente. Uno de nuestros expertos en instalación te ayudará a coordinar la visita.
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Pregunta 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeading4">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                                    <b>¿Realizan envíos a todo México?</b>
+                                </button>
+                            </h2>
+                            <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, realizamos envíos a todo México. El costo de envío varía según la ubicación y el tamaño del pedido. Puedes calcular el costo de envío al momento de realizar tu compra.
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Pregunta 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeading5">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+                                    <b>¿Cuánto tarda el envío a domicilio?</b>
+                                </button>
+                            </h2>
+                            <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    El tiempo de envío depende de tu ubicación y el tipo de envío que selecciones. Generalmente, los envíos a nivel nacional tardan entre 3 y 7 días hábiles.
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Pregunta 6 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeading6">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
+                                    <b>¿Cuál es la garantía de los productos?</b>
+                                </button>
+                            </h2>
+                            <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faqHeading6" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Todos nuestros productos tienen una garantía de 1 año contra defectos de fabricación. Si encuentras algún problema con el producto dentro del período de garantía, por favor, contáctanos para gestionar la reparación o reemplazo.
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Pregunta 7 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeading7">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse7" aria-expanded="false" aria-controls="faqCollapse7">
+                                    <b>¿La instalación de los productos tiene garantía?</b>
+                                </button>
+                            </h2>
+                            <div id="faqCollapse7" class="accordion-collapse collapse" aria-labelledby="faqHeading7" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, la instalación de nuestros productos tiene garantía de 6 meses. Si experimentas algún problema relacionado con la instalación, contacta con nosotros y enviaremos a un técnico para resolverlo sin costo adicional.
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Pregunta 8 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeading8">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse8" aria-expanded="false" aria-controls="faqCollapse8">
+                                    <b>¿Cómo puedo rastrear mi pedido?</b>
+                                </button>
+                            </h2>
+                            <div id="faqCollapse8" class="accordion-collapse collapse" aria-labelledby="faqHeading8" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Una vez que tu pedido sea enviado, recibirás un correo electrónico con el número de seguimiento y un enlace para rastrear el estado de tu envío en tiempo real.
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Pregunta 9 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqHeading9">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse9" aria-expanded="false" aria-controls="faqCollapse9">
+                                    <b>¿Realizan servicio de instalación a todo México?</b>
+                                </button>
+                            </h2>
+                            <div id="faqCollapse9" class="accordion-collapse collapse" aria-labelledby="faqHeading9" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    No, el servicio de instalación sólo esta disponible para la Ciudad de México por el momento.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- Sección de contacto -->
+                <section id="contacto" class="mt-5">
+                    <h2 class="mb-3">Contacto</h2>
+                    <p>Si no encuentras la respuesta que buscas, no dudes en ponerte en contacto con nosotros. Estaremos encantados de ayudarte.</p>
+                    <div>
+                        <a href="contacto.html" class="btn btn-primary temeButton">Contáctanos</a>
+                    </div>
+                </section>
+        
+                <!-- Formulario de contacto -->
+                <section id="formulario-contacto" class="mt-5">
+                    <h2 class="mb-3">¿Tienes alguna duda?</h2>
+                    <form action="enviar_duda.php" method="POST">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Tu Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Tu Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Tu Mensaje</label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary temeButton">Enviar Mensaje</button>
+                    </form>
+                </section>
+            </div>
+     </main>
+
+    <!-- Footer -->
+    <footer class="bg-tema-tienda text-light mt-4 py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Columna 1: Contacto -->
+                <div class="col-md-3 border-end">
+                    <h5 class="text-uppercase">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li>Vision Guard</li>
+                        <li>Email: visionguard@vgmail.com</li>
+                        <li>Teléfono: +52 645 213 8079</li>
+                    </ul>
+                    <h6 class="text-uppercase">¿Tienes alguna duda?</h6>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-headset" style="font-size: 2rem;"></i>
+                        <span class="ms-2">+52 800 243 7192 (todo el día)</span>
+                    </div>
+                    <div class="d-flex">
+                        <a href="https://facebook.com" target="_blank" class="text-light me-3">
+                            <i class="bi bi-facebook" style="font-size: 1.5rem;"></i>
+                        </a>
+                        <a href="https://X.com" target="_blank" class="text-light me-3">
+                            <i class="bi bi-twitter-x" style="font-size: 1.5rem;"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="text-light me-3">
+                            <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="text-light">
+                            <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Columna 2: Productos -->
+                <div class="col-md-2">
+                    <h5 class="text-uppercase">Productos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html?busca=cámara" class="text-light text-decoration-none">· Cámaras HD</a></li>
+                        <li><a href="products.html?busca=dvr" class="text-light text-decoration-none">· Grabadores de Vídeo</a></li>
+                        <li><a href="products.html?busca=kit" class="text-light text-decoration-none">· Kits de instalación</a></li>
+                        <li><a href="products.html?busca=cable" class="text-light text-decoration-none">· Cables de variedad</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Columna 3: Sobre la Empresa -->
+                <div class="col-md-2">
+                    <h5 class="text-uppercase">Sobre la Empresa</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="info.html" class="text-light text-decoration-none">· Nuestra Historia</a></li>
+                        <li><a href="info.html#mision-vision" class="text-light text-decoration-none">· Misión y Visión</a></li>
+                        <li><a href="info.html#equipo" class="text-light text-decoration-none">· Equipo</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Columna 4: Información -->
+                <div class="col-md-2">
+                    <h5 class="text-uppercase">Información</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="privacy_policy.html" class="text-light text-decoration-none">· Política de Privacidad</a></li>
+                        <li><a href="terms_conditions.html" class="text-light text-decoration-none">· Términos y Condiciones</a></li>
+                        <li><a href="ayuda.html" class="text-light text-decoration-none">· Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Columna 5: Créditos -->
+                <div class="col-md-3">
+                    <h5 class="text-uppercase">Créditos</h5>
+                    <p>Diseñado y desarrollado por <a href="info.html" target="_blank" class="text-light text-decoration-none">Vision Guard</a>.</p>
+                    <p>© 2024 Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
