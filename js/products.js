@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }).format(price);
     }
 
-    // Función para cargar productos desde un archivo JSON
+    // Función para cargar productos desde API
     async function loadProducts() {
         try {
             const response = await fetch("http://localhost:3000/api/productos"); // URL de tu API REST
