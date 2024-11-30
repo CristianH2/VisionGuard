@@ -47,8 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para cargar productos desde un archivo JSON
     async function loadProducts() {
         try {
-            const response = await fetch("json/products.json"); // Ruta al archivo JSON
-            products = await response.json();
+            const response = await fetch("http://localhost:3000/api/productos"); // URL de tu API REST
+            if (!response.ok) {
+                throw new Error('Error al obtener productos');
+            }
+            products = await response.json(); // Los productos ahora provienen de la API
             filteredProducts = [...products];
 
             // Aplicar filtros iniciales si se encuentran parámetros en la URL
