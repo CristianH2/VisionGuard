@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,3 +65,36 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+# Proyecto Final (NE y DW): VisionGuard
+**Descripción:** Nuestra empresa ofrece un servicio de instalación de equipo de vigilancia, es una empresa especializada en la venta, instalación y mantenimiento de equipos de seguridad avanzados para hogares y negocios locales.
+Este repositorio aloja el código,  herramientas y la respectiva documentación de toda la arquitectura de la pagina web. La página web es una tienda en línea que ofrece servicio de instalación de equipo de vigilancia así como el producto individual.
+
+## Contenido
+[Por agregar]
+
+## Funcionalidades [Propuestas]
+
+ - Registro y Autenticación de Usuarios:
+	 - [ ] Permitir a los usuarios registrarse y autenticarse en la plataforma.
+	 - [ ] Implementar roles de usuario (administrador, cliente, etc.). 
+ - Catálogo de Productos: 
+	 - [ ] Mostrar un catálogo de productos con detalles como imágenes, descripciones, precios y disponibilidad.
+	 - [ ] Permitir la búsqueda y filtrado de productos. 
+- Carrito de Compras y Procesamiento de Pedidos:
+   - [ ] Funcionalidad para agregar productos al carrito de compras. 
+   - [ ] Procesar pedidos y gestionar el inventario. 
+ - Comparación de Precios (Web Scraping):
+	 - [ ] Utilizar web scraping para comparar precios y características de productos similares en otras plataformas.
+ - Integración con Redes Sociales: 
+	 - [ ] Consumir APIs de redes sociales para obtener y publicar información relevante (por ejemplo, comentarios de productos, promociones).
+
+
+## Autores
+
+ - Hernández Hernández Cristian
+- Pérez López Julio Armando
+
+### Contacto
+tyfre12345@gmail.com
+>>>>>>> af709cee0926ecda2163ad5fe9392df9e1c33687
