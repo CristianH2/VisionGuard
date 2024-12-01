@@ -1,0 +1,17 @@
+/* Estilo para la barra de navegación principal */
+#barraNavegacion {
+    background-color: #11929e; /* Fondo blanco para la barra de navegación */
+    margin-bottom: 100px;
+}
+
+/* ==== Temática General ==== */
+.bg-tema-tienda {
+    background-color: #11929e; /* Fondo verde azulado */
+    color: #ffffff; /* Texto blanco */
+}
+
+.fondoB{
+    background: white;
+    border-radius: 10px;
+    border: 5px #ffffff solid;
+}

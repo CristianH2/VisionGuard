@@ -26,24 +26,23 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     try {
-        // Cargar datos del producto desde JSON (Prueba)
-        // const response = await fetch("json/products.json");
-        // const products = await response.json();
-        // const product = products.find(p => p.id === parseInt(productId));
-
-        // Realizar la solicitud a la API REST para obtener los detalles del producto
-        const response = await fetch(`https://api.mitienda.com/products/${productId}`); // URL de tu API REST
-        const product = await response.json();
+        // Cargar datos del producto API
+        const response = await fetch("http://localhost:8000/api/products");
+        const products = await response.json();
+        const product = products.find(p => p.id === parseInt(productId));
 
         if (!product) {
             document.body.innerHTML = "<p class='text-center text-danger'>Producto no encontrado.</p>";
             return;
         }
 
+        // Convertir la cadena JSON de imágenes en un arreglo
+        const images = JSON.parse(product.images);
+
         // Mostrar detalles del producto
         productTitle.textContent = product.name;
         productPrice.textContent = formatPrice(product.price);
-        productDescription.textContent = product.description;
+        productDescription.innerHTML = product.description; // Usamos innerHTML para mostrar el HTML
         productCategory.textContent = product.category;
         productName.textContent = product.name;
         productMainImage.src = product.image;
@@ -73,7 +72,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         // Mostrar miniaturas
-        product.images.forEach(image => {
+        images.forEach(image => {
             const thumbnail = document.createElement("img");
             thumbnail.src = image;
             thumbnail.alt = product.name;

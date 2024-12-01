@@ -2,7 +2,7 @@
 document.getElementById("registerForm").addEventListener("submit", function(event) {
     // Prevenir envío del formulario hasta validación
     event.preventDefault();
-    
+
     // Obtener valores de las contraseñas
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
@@ -19,10 +19,11 @@ document.getElementById("registerForm").addEventListener("submit", function(even
         name: formData.get("name"),
         email: formData.get("email"),
         password: formData.get("password"),
+        password_confirmation: formData.get("confirmPassword"), // Confirmación de la contraseña
     };
 
     // Enviar datos al backend usando fetch
-    fetch("ruta_del_backend/register", {
+    fetch("http://localhost:8000/api/register", {  // Cambia la URL a tu API
         method: "POST",
         headers: {
             "Content-Type": "application/json",

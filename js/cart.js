@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Obtener los productos desde el archivo JSON
-    fetch('json/products.json')
+    // // Verificar si el usuario está autenticado
+    // const authToken = localStorage.getItem("auth_token");
+    // if (!authToken) {
+    //     // Si no está autenticado, redirigir al login
+    //     alert("Por favor, inicie sesión para acceder al carrito.");
+    //     window.location.href = "login.html";  // Redirige al login
+    //     return; // Evitar que el resto del código se ejecute
+    // }
+    
+    // Obtener los productos desde API
+    fetch('http://localhost:8000/api/products/')
         .then(response => response.json())
         .then(products => {
             // Cargar el carrito desde localStorage

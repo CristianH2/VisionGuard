@@ -1,0 +1,73 @@
+h3{
+    color: white;
+}
+
+.white-color{
+    color: white;
+}
+
+.logo{
+    background-color: white;
+    border-radius: 20px;
+}
+
+.teme-color{
+    background-color: #11929e;
+}
+
+.navbar{
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #11929e;
+    border: none;
+    color: white;
+    padding: 9px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #006f79;
+}
+
+.menu{
+    border-radius: 15px;
+    background-color: #f1f1f1;
+}
+
+
+/* Resaltar elemento seleccionado */
+.menu-item.active {
+    background-color: #11929e;
+    color: #ffffff;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+/* Animación al pasar el mouse por las opciones de filtro */
+.menu-item:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: #f1f1f1;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: #11929e 1px solid;
+    border-radius: 15px;
+}
+
+.menu-item.active:hover {
+    transform: scale(1.1);
+    background-color: #11929e;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.red{
+    background-color: rgb(243, 42, 42);
+}
+
+.red:hover{
+    background-color: rgb(148, 11, 11);
+}

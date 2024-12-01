@@ -47,10 +47,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para cargar productos desde API
     async function loadProducts() {
         try {
-            const response = await fetch("http://localhost:3000/api/productos"); // URL de tu API REST
+            const response = await fetch('http://localhost:8000/api/products'); // URL del API REST
             if (!response.ok) {
                 throw new Error('Error al obtener productos');
             }
+
+
+
             products = await response.json(); // Los productos ahora provienen de la API
             filteredProducts = [...products];
 
