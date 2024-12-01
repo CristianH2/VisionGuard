@@ -1,16 +1,19 @@
 <x-app-layout>
     <div class="container">
         <h1>Publicar un Tweet</h1>
-        @if(session('success'))
+
+        @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
-        @if(session('error'))
+
+        @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
         @endif
+
         <form action="{{ route('twitter.tweet') }}" method="POST">
             @csrf
             <div class="form-group">

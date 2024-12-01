@@ -8,6 +8,7 @@
     "require": {
         "php": "^8.2",
         "abraham/twitteroauth": "^7.0",
+        "asm89/stack-cors": "^2.2",
         "guzzlehttp/guzzle": "^7.9",
         "intervention/image": "^3.9",
         "laravel/framework": "^11.31",
