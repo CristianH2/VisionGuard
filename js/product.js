@@ -26,10 +26,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     try {
-        // Cargar datos del producto desde JSON
-        const response = await fetch("json/products.json");
-        const products = await response.json();
-        const product = products.find(p => p.id === parseInt(productId));
+        // Cargar datos del producto desde JSON (Prueba)
+        // const response = await fetch("json/products.json");
+        // const products = await response.json();
+        // const product = products.find(p => p.id === parseInt(productId));
+
+        // Realizar la solicitud a la API REST para obtener los detalles del producto
+        const response = await fetch(`https://api.mitienda.com/products/${productId}`); // URL de tu API REST
+        const product = await response.json();
 
         if (!product) {
             document.body.innerHTML = "<p class='text-center text-danger'>Producto no encontrado.</p>";
