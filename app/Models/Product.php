@@ -24,6 +24,7 @@ class Product extends Model
         'color',
         'rating',
         'image',
+        'model',
     ];
 
     // (Opcional) Si no usas `created_at` y `updated_at`, puedes deshabilitarlos:
