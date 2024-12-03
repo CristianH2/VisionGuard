@@ -155,3 +155,10 @@ footer a {
 footer a:hover {
     text-decoration: underline; /* Subrayado al pasar el mouse */
 }
+
+/* Otros */
+.contorno{
+    border: #11929e 2px solid;
+    background-color: #11929e;
+
+}

@@ -71,3 +71,8 @@ h3{
 .red:hover{
     background-color: rgb(148, 11, 11);
 }
+
+.color-bg{
+    background-color: #84d7df;
+    border-radius: 15px;
+}

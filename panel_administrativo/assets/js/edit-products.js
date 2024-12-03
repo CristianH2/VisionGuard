@@ -1,9 +1,41 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const token = localStorage.getItem('auth_token'); // Verificar si el token está almacenado en localStorage
+
+    if (!token) {
+        // Si no hay token, redirigir al login
+        window.location.href = "/login.html";
+        return;
+    }
+
+    // Si el token existe, se verifica el rol del usuario
+    fetch("http://25.61.101.23/api/getrole", { // URL del endpoint que verifica el rol
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            user_id: localStorage.getItem('user_id') // Enviar el ID del usuario almacenado
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.role_id === 2) {  // El role_id 2 es "Usuario"
+            // Si no es administrador, redirigir a la vista estándar de usuario
+            window.location.href = "/index.html"; 
+        }
+    })
+    .catch(error => {
+        console.error("Error al verificar el rol del usuario:", error);
+        alert("Hubo un problema al verificar el rol del usuario. Inténtalo de nuevo más tarde.");
+    });
+});
+
 // Obtener el ID del producto (puedes pasarlo desde la URL o de otra forma)
 const productId = new URLSearchParams(window.location.search).get("id");
 
 if (productId) {
     // Realizamos una solicitud para obtener los datos del producto
-    fetch(`http://localhost:8000/api/products/${productId}`)
+    fetch(`http://25.61.101.23/api/products/${productId}`)
         .then(response => response.json())
         .then(data => {
             if (data.success && data.product) {
@@ -31,7 +63,7 @@ if (productId) {
 
                 productImages.forEach(imagePath => {
                     const img = document.createElement('img');
-                    img.src = `http://localhost:5500/${imagePath}`; // Ajusta esta ruta
+                    img.src = `http://25.61.101.23/api/products/${imagePath}`; // Ajusta esta ruta
                     img.classList.add('img-thumbnail');
                     img.style.width = '100px';
                     img.style.marginRight = '10px';
@@ -90,7 +122,7 @@ document.getElementById("productForm").addEventListener("submit", function(event
     };
 
     // Enviar los datos a la API para actualizar el producto
-    fetch(`http://localhost:8000/api/products/${productId}`, {
+    fetch(`http://25.61.101.23/api/products/${productId}`, {
         method: 'PUT', // Cambiar de POST a PUT para editar el producto
         headers: {
             'Content-Type': 'application/json',

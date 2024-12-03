@@ -51,7 +51,9 @@
                     <!-- Opciones del menú -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="login.html"><i class="bi bi-person-circle"></i> Iniciar Sesion</a>
+                            <a class="nav-link active" id="authLink" href="javascript:void(0)">
+                                <i class="bi bi-person-circle"></i> Cerrar Sesión
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.html"><i class="bi bi-cart-fill"></i> Carrito</a>
@@ -99,6 +101,9 @@
                         <li class="list-group-item" data-category="Cámaras">Cámaras</li>
                         <li class="list-group-item" data-category="Grabadores">Grabadores</li>
                         <li class="list-group-item" data-category="Accesorios">Accesorios</li>
+                        <li class="list-group-item" data-category="Equipos Red">Equipos Red</li>
+                        <li class="list-group-item" data-category="Detección">Detección</li>
+                        <li class="list-group-item" data-category="Kits">Kits</li>
                     </ul>
                 </div>
 
@@ -106,9 +111,16 @@
                 <div class="mb-4">
                     <h5>Marca</h5>
                     <ul class="list-group" id="brand-filter">
-                        <li class="list-group-item" data-brand="Marca 1">Marca 1</li>
-                        <li class="list-group-item" data-brand="Marca 2">Marca 2</li>
-                        <li class="list-group-item" data-brand="Marca 3">Marca 3</li>
+                        <li class="list-group-item" data-brand="Steren">Steren</li>
+                        <li class="list-group-item" data-brand="TP-Link">TP-Link</li>
+                        <li class="list-group-item" data-brand="Dahua Technology">Dahua Technology</li>
+                        <li class="list-group-item" data-brand="HIKVISION">HIKVISION</li>
+                        <li class="list-group-item" data-brand="Ario">Ario</li>
+                        <li class="list-group-item" data-brand="Xiaomi">Xiaomi</li>
+                        <li class="list-group-item" data-brand="eufy">eufy</li>
+                        <li class="list-group-item" data-brand="Ring">Ring</li>
+                        <li class="list-group-item" data-brand="Hanwha Techwin">Hanwha Techwin</li>
+                        <li class="list-group-item" data-brand="Bosch">Bosch</li>
                     </ul>
                 </div>
 
@@ -129,8 +141,8 @@
                         <li class="list-group-item" data-color="Blanco">
                             <span class="badge bg-light rounded-circle border me-2">&nbsp;</span>Blanco
                         </li>
-                        <li class="list-group-item" data-color="Azul">
-                            <span class="badge bg-primary rounded-circle me-2">&nbsp;</span>Azul
+                        <li class="list-group-item" data-color="Gris">
+                            <span class="badge bg-secondary rounded-circle me-2">&nbsp;</span>Gris
                         </li>
                     </ul>
                 </div>
@@ -241,5 +253,6 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/products.js"></script> <!-- Archivo JavaScript para cargar productos dinámicamente -->
+    <script src="js/cerrar_sesion.js"></script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+{
+  "pedidos": [
+    {
+      "id_pedido": 1,
+      "total": 1050.5,
+      "usuario": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com", 
+        "role_id": 2,
+        "role_name": "Cliente",
+        "created_at": "2024-01-01T12:00:00.000000Z", 
+        "updated_at": "2024-01-01T12:00:00.000000Z"
+      },
+      "created_at": "2024-01-01T12:00:00.000000Z", 
+      "updated_at": "2024-01-01T12:00:00.000000Z"
+    },
+    {
+      "id_pedido": 2,
+      "total": 1500.5,
+      "usuario": {
+        "id": 1,
+        "name": "Perez",
+        "email": "john.doe@example.com", 
+        "role_id": 2,
+        "role_name": "Cliente",
+        "created_at": "2024-01-01T12:00:00.000000Z", 
+        "updated_at": "2024-01-01T12:00:00.000000Z"
+      },
+      "created_at": "2024-01-01T12:00:00.000000Z", 
+      "updated_at": "2024-01-01T12:00:00.000000Z"
+    } ,
+    {
+      "id_pedido": 3,
+      "total": 10.5,
+      "usuario": {
+        "id": 1,
+        "name": "Pig",
+        "email": "john.doe@example.com", 
+        "role_id": 2,
+        "role_name": "Cliente",
+        "created_at": "2024-01-01T12:00:00.000000Z", 
+        "updated_at": "2024-01-01T12:00:00.000000Z"
+      },
+      "created_at": "2024-01-01T12:00:00.000000Z", 
+      "updated_at": "2024-01-01T12:00:00.000000Z"
+    } 
+  ]
+}

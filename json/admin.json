@@ -1,0 +1,31 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "role_id": 2,
+        "role_name": "Cliente",
+        "created_at": "2024-01-01T12:00:00.000000Z",
+        "updated_at": "2024-01-01T12:00:00.000000Z"
+      },
+      {
+        "id": 2,
+        "name": "Persona 2",
+        "email": "john2.doe@example.com",
+        "role_id": 2,
+        "role_name": "Cliente",
+        "created_at": "2024-01-01T12:00:00.000000Z",
+        "updated_at": "2024-01-01T12:00:00.000000Z"
+      },
+      {
+        "id": 3,
+        "name": "Persona 2",
+        "email": "john3.doe@example.com",
+        "role_id": 2,
+        "role_name": "Cliente",
+        "created_at": "2024-01-01T12:00:00.000000Z",
+        "updated_at": "2024-01-01T12:00:00.000000Z"
+      }
+    ]
+}

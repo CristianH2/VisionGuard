@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     try {
         // Cargar datos del producto API
-        const response = await fetch("http://localhost:8000/api/products");
+        const response = await fetch("http://25.61.101.23/api/products");
         const products = await response.json();
         const product = products.find(p => p.id === parseInt(productId));
 
@@ -111,6 +111,25 @@ document.addEventListener("DOMContentLoaded", async function () {
             <p>Aquí aparecerán las opiniones de los usuarios.</p>
         `;
 
+        // Función para comprar directamente
+        buyNowBtn.addEventListener("click", () => {
+            let quantity = parseInt(quantityInput.value);
+
+            // Validar cantidad antes de agregar al carrito
+            if (quantity <= 0) {
+                quantity = 1; // Si la cantidad es menor o igual a 0, se restablece a 1
+                quantityInput.value = 1; // Restablecer el valor en el input
+            }
+
+            if (quantity > product.stock) {
+                alert("No hay suficiente stock disponible.");
+                return;
+            }
+
+            addToCartAPI(product, quantity);
+            window.location.href = '/cart.html'; // Redirigir al carrito
+        });
+
         // Función para agregar al carrito
         addToCartBtn.addEventListener("click", () => {
             let quantity = parseInt(quantityInput.value);
@@ -126,33 +145,65 @@ document.addEventListener("DOMContentLoaded", async function () {
                 return;
             }
 
-            addToCart(product, quantity);
+            addToCartAPI(product, quantity);
         });
 
-        // Función para agregar productos al carrito en localStorage
-        function addToCart(product, quantity) {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        // Función para agregar productos al carrito a través de la API
+        async function addToCartAPI(product, quantity) {
+            const token = localStorage.getItem("auth_token"); // Verificar si el token está almacenado en localStorage
 
-            const existingProduct = cart.find(item => item.id === product.id);
-
-            if (existingProduct) {
-                existingProduct.quantity += quantity;
-            } else {
-                cart.push({ id: product.id, name: product.name, price: product.price, quantity: quantity, image: product.image });
+            if (!token) {
+                alert("No estás autenticado. Por favor, inicia sesión.");
+                window.location.href = "/login.html"; // Redirigir a la página de login
+                return;
             }
 
-            // Guardar el carrito actualizado en localStorage
-            localStorage.setItem("cart", JSON.stringify(cart));
+            const userId = localStorage.getItem('user_id');
+            
+            try {
+                const response = await fetch("http://25.61.101.23/api/carro", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        id_usuario: userId,
+                        id_producto: product.id,
+                        num_productos: quantity,
+                    }),
+                });
 
-            // Actualizar el contador del carrito
-            updateCartCount();
+                const data = await response.json();
+
+                if (data.message === "Producto añadido al carrito") {
+                    console.log("Producto añadido al carrito.");
+                    updateCartCount(); // Actualizar el contador del carrito
+                } else {
+                    alert("Error al agregar el producto al carrito.");
+                }
+            } catch (error) {
+                console.error("Error al agregar el producto al carrito:", error);
+                alert("Hubo un problema al agregar el producto al carrito.");
+            }
         }
 
         // Función para actualizar el contador de productos en el carrito
-        function updateCartCount() {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-            cartCount.textContent = totalItems;
+        async function updateCartCount() {
+            const token = localStorage.getItem("auth_token");
+
+            if (!token) return;
+
+            const userId = localStorage.getItem('user_id');
+
+            try {
+                const response = await fetch(`http://25.61.101.23/api/carro/${userId}`);
+                const cartItems = await response.json();
+                const totalItems = cartItems.reduce((acc, item) => acc + item.num_productos, 0);
+
+                cartCount.textContent = totalItems; // Actualizar el contador de productos en el carrito
+            } catch (error) {
+                console.error("Error al actualizar el contador del carrito:", error);
+            }
         }
 
         // Actualizar contador de carrito al cargar la página

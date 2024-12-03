@@ -1,4 +1,12 @@
-// Validación de contraseñas coincidentes
+// Redirigir al index si ya hay un token almacenado
+document.addEventListener('DOMContentLoaded', function() {
+    const token = localStorage.getItem('auth_token'); // Verificar si el token está almacenado en localStorage
+
+    if (token) {
+        window.location.href = "index.html"; // Redirigir al index si ya está logueado
+    }
+});
+
 document.getElementById("registerForm").addEventListener("submit", function(event) {
     // Prevenir envío del formulario hasta validación
     event.preventDefault();
@@ -23,7 +31,7 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     };
 
     // Enviar datos al backend usando fetch
-    fetch("http://localhost:8000/api/register", {  // Cambia la URL a tu API
+    fetch("http://25.61.101.23/api/register", {  // Cambia la URL a tu API
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -33,8 +41,10 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     .then(response => response.json())
     .then(data => {
         // Manejo de la respuesta del servidor
-        if (data.success) {
+        if (data.message === "User registered successfully.") {
             alert("¡Registro exitoso!");
+            // Almacenar el token en localStorage
+            localStorage.setItem("auth_token", data.token);
             window.location.href = "login.html";  // Redirigir al login
         } else {
             alert("Error: " + data.message);  // Mostrar mensaje de error
@@ -45,3 +55,4 @@ document.getElementById("registerForm").addEventListener("submit", function(even
         alert("Hubo un problema al registrar. Inténtelo de nuevo más tarde.");
     });
 });
+
