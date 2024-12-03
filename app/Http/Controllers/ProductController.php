@@ -4,8 +4,35 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+
+
+
+
 class ProductController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/api/products",
+     *     summary="Obtener todos los productos",
+     *     tags={"Productos"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Lista de productos obtenida correctamente",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(
+     *                 @OA\Property(property="id", type="integer", example=1),
+     *                 @OA\Property(property="name", type="string", example="Producto A"),
+     *                 @OA\Property(property="price", type="number", format="float", example=100.50),
+     *                 @OA\Property(property="stock", type="integer", example=20),
+     *                 @OA\Property(property="category", type="string", example="Electrónica"),
+     *                 @OA\Property(property="brand", type="string", example="Marca A")
+     *             )
+     *         )
+     *     )
+     * )
+     */
+
     // Método para obtener todos los productos
     public function index()
     {
@@ -23,6 +50,39 @@ class ProductController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * @OA\Get(
+     *     path="/api/products/{id}",
+     *     summary="Obtener un producto por su ID",
+     *     tags={"Productos"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID del producto",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Producto obtenido correctamente",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="id", type="integer", example=1),
+     *             @OA\Property(property="name", type="string", example="Producto A"),
+     *             @OA\Property(property="price", type="number", format="float", example=100.50),
+     *             @OA\Property(property="stock", type="integer", example=20),
+     *             @OA\Property(property="description", type="string", example="Descripción del producto"),
+     *             @OA\Property(property="category", type="string", example="Electrónica"),
+     *             @OA\Property(property="brand", type="string", example="Marca A")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Producto no encontrado"
+     *     )
+     * )
+     */
+
 
     // Método para obtener un solo producto por su ID
     public function show($id)
@@ -51,6 +111,40 @@ class ProductController extends Controller
             ], 500);
         }
     }
+
+     /**
+     * @OA\Post(
+     *     path="/api/products",
+     *     summary="Crear un nuevo producto",
+     *     tags={"Productos"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="name", type="string", example="Producto A"),
+     *             @OA\Property(property="category", type="string", example="Electrónica"),
+     *             @OA\Property(property="brand", type="string", example="Marca A"),
+     *             @OA\Property(property="model", type="string", example="Modelo A"),
+     *             @OA\Property(property="price", type="number", format="float", example=100.50),
+     *             @OA\Property(property="description", type="string", example="Descripción del producto"),
+     *             @OA\Property(property="stock", type="integer", example=20),
+     *             @OA\Property(property="images", type="array", @OA\Items(type="string", example="https://example.com/image.jpg")),
+     *             @OA\Property(property="color", type="string", example="Rojo"),
+     *             @OA\Property(property="rating", type="number", format="float", example=4.5),
+     *             @OA\Property(property="image", type="string", example="https://example.com/image.jpg")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Producto creado exitosamente",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="success", type="boolean", example=true),
+     *             @OA\Property(property="message", type="string", example="Producto creado exitosamente"),
+     *             @OA\Property(property="product", type="object", ref="#/components/schemas/Product")
+     *         )
+     *     )
+     * )
+     */
+
 
     // Agregar un producto
     public function store(Request $request)
@@ -101,6 +195,42 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * @OA\Put(
+     *     path="/api/products/{id}",
+     *     summary="Actualizar un producto existente",
+     *     tags={"Productos"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID del producto a actualizar",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="name", type="string", example="Producto A"),
+     *             @OA\Property(property="category", type="string", example="Electrónica"),
+     *             @OA\Property(property="brand", type="string", example="Marca A"),
+     *             @OA\Property(property="model", type="string", example="Modelo A"),
+     *             @OA\Property(property="price", type="number", format="float", example=100.50),
+     *             @OA\Property(property="description", type="string", example="Descripción del producto"),
+     *             @OA\Property(property="stock", type="integer", example=20),
+     *             @OA\Property(property="images", type="array", @OA\Items(type="string", example="https://example.com/image.jpg")),
+     *             @OA\Property(property="color", type="string", example="Rojo"),
+     *             @OA\Property(property="rating", type="number", format="float", example=4.5),
+     *             @OA\Property(property="image", type="string", example="https://example.com/image.jpg")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Producto actualizado exitosamente"
+     *     )
+     * )
+     */
+
+
     // Editar un producto
     public function update(Request $request, $id)
     {
@@ -137,6 +267,26 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * @OA\Delete(
+     *     path="/api/products/{id}",
+     *     summary="Eliminar un producto por su ID",
+     *     tags={"Productos"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID del producto a eliminar",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Producto eliminado exitosamente"
+     *     )
+     * )
+     */
+
+    
     // Eliminar un producto
     public function destroy($id)
     {
@@ -155,4 +305,63 @@ class ProductController extends Controller
             ], 500); // Error interno del servidor
         }
     }
+
+    /**
+     * @OA\Put(
+     *     path="/api/products/update-stock",
+     *     summary="Actualizar el stock de un producto",
+     *     tags={"Productos"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"id", "stock"},
+     *             @OA\Property(property="id", type="integer", description="ID del producto", example=1),
+     *             @OA\Property(property="stock", type="integer", description="Nuevo valor del stock", example=30)
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Stock actualizado con éxito",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Stock actualizado con éxito"),
+     *             @OA\Property(property="product", ref="#/components/schemas/Product")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Producto no encontrado",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Producto no encontrado")
+     *         )
+     *     )
+     * )
+     */
+    public function updateStock(Request $request)
+    {
+        // Validar los datos recibidos
+        $request->validate([
+            'id' => 'required|integer|exists:products,id',
+            'stock' => 'required|integer|min:0',
+        ]);
+
+        // Buscar el producto por ID
+        $product = Product::find($request->input('id'));
+
+        if (!$product) {
+            return response()->json(['message' => 'Producto no encontrado'], 404);
+        }
+
+        // Actualizar el stock del producto
+        $product->stock = $request->input('stock');
+        $product->save();
+
+        return response()->json([
+            'message' => 'Stock actualizado con éxito',
+            'product' => $product,
+        ], 200);
+    }
+
+
+
+
 }

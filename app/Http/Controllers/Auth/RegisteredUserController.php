@@ -12,18 +12,55 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
+
 class RegisteredUserController extends Controller
 {
     /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * @OA\Post(
+     *     path="/api/register",
+     *     summary="Registrar un nuevo usuario",
+     *     tags={"Autenticación"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="name", type="string", example="John Doe"),
+     *             @OA\Property(property="email", type="string", format="email", example="john.doe@example.com"),
+     *             @OA\Property(property="password", type="string", example="password123"),
+     *             @OA\Property(property="password_confirmation", type="string", example="password123")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Usuario registrado exitosamente",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="User registered successfully."),
+     *             @OA\Property(
+     *                 property="user",
+     *                 type="object",
+     *                 @OA\Property(property="id", type="integer", example=1),
+     *                 @OA\Property(property="name", type="string", example="John Doe"),
+     *                 @OA\Property(property="email", type="string", example="john.doe@example.com"),
+     *                 @OA\Property(property="role_id", type="integer", example=2)
+     *             ),
+     *             @OA\Property(property="token", type="string", example="abcdef1234567890")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Datos inválidos",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Validation error")
+     *         )
+     *     )
+     * )
      */
-    public function store(Request $request): jsonResponse
+    public function store(Request $request): JsonResponse
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -34,40 +71,63 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
-
         Auth::login($user);
-        
-        $token= $user->createToken('API token')->plainTextToken;
 
-        $clienteRoleId = Rol::where('name','cliente')->first()->id;
+        $token = $user->createToken('API token')->plainTextToken;
+
+        $clienteRoleId = Rol::where('name', 'cliente')->first()->id;
 
         return response()->json([
             'message' => 'User registered successfully.',
             'user' => $user,
-            'role_id'=>$clienteRoleId,
+            'role_id' => $clienteRoleId,
             'token' => $token,
         ], 201);
-
     }
 
+    /**
+     * @OA\Post(
+     *     path="/api/getrole",
+     *     summary="Obtener el rol de un usuario",
+     *     tags={"Roles"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="user_id", type="integer", example=1)
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Rol del usuario devuelto correctamente",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="user_id", type="integer", example=1),
+     *             @OA\Property(property="role_id", type="integer", example=2),
+     *             @OA\Property(property="role_name", type="string", example="Cliente")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Usuario no encontrado",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="User not found")
+     *         )
+     *     )
+     * )
+     */
     public function getUserRole(Request $request)
     {
-        // Validar el cuerpo del JSON
         $request->validate([
-            'user_id' => 'required|exists:users,id', // Asegúrate de que el user_id exista en la tabla users
+            'user_id' => 'required|exists:users,id',
         ]);
 
-        // Buscar el usuario
         $user = User::with('role')->findOrFail($request->input('user_id'));
 
-        // Responder con el role_id y el nombre del rol
         return response()->json([
             'user_id' => $user->id,
             'role_id' => $user->role_id,
-            'role_name' => $user->role ? $user->role->name : null, // Verificar si tiene un rol
+            'role_name' => $user->role ? $user->role->name : null,
         ]);
-
-
-}
-
+    }
 }

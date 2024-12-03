@@ -62,6 +62,8 @@ Route::get('/products/{id}', [ProductController::class, 'show']); // Obtener un 
 Route::post('products', [ProductController::class, 'store']); // Agregar producto
 Route::put('products/{id}', [ProductController::class, 'update']); // Modificar producto por su ID
 Route::delete('products/{id}', [ProductController::class, 'destroy']); // Eliminar producto por
+Route::put('/products/update-stock', [ProductController::class, 'updateStock']);
+
 
 //scraping
 Route::get('/scrape', [WebScraperController::class, 'scrape']);
@@ -72,3 +74,4 @@ Route::post('/carro', [CarroController::class, 'anadirAlCarro']);
 Route::delete('/carro', [CarroController::class, 'quitarDelCarro']);
 Route::delete('/carro/vaciar/{id_usuario}', [CarroController::class, 'vaciarCarro']);
 Route::post('/carro/procesar-compra/{id_usuario}', [CarroController::class, 'procesarCompra']);
+Route::put('/carro/decrement-product', [CarroController::class, 'decrementProduct']);
