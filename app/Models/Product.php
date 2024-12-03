@@ -38,7 +38,7 @@ class Product extends Model
 
     // Especifica la tabla asociada
     protected $table = 'products';
-
+    protected $primaryKey = 'id';
     // Define los campos asignables
     protected $fillable = [
         'name',
@@ -54,7 +54,7 @@ class Product extends Model
         'model',
     ];
 
-    // (Opcional) Si no usas `created_at` y `updated_at`, puedes deshabilitarlos:
+    
     // public $timestamps = false;
 }
 
