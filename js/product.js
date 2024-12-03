@@ -26,6 +26,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     try {
+        // Llamar la API de scraping
+        const scrapingResponse = await fetch("http://25.61.101.23/api/scrape");
+        const scrapingData = await scrapingResponse.json();
+        const scrapingProducts = scrapingData.data;
+        
         // Cargar datos del producto API
         const response = await fetch("http://25.61.101.23/api/products");
         const products = await response.json();
@@ -69,6 +74,18 @@ document.addEventListener("DOMContentLoaded", async function () {
             // Aplicar clase visual para indicar deshabilitado (opcional)
             buyNowBtn.classList.add("disabled");
             addToCartBtn.classList.add("disabled");
+        }
+
+        // Comparar los títulos de los productos de la API con los de la página y mostrar el mensaje si coinciden
+        const scrapedProduct = scrapingProducts.find(sp => sp.title === product.name);
+        if (scrapedProduct) {
+            const priceMessage = `Precio más barato que en Steren.com: ${scrapedProduct.price}`;
+            const priceMessageElement = document.createElement("p");
+            priceMessageElement.classList.add("mt-3", "bg-primary", "text-center");
+            priceMessageElement.style.fontWeight = "bold"; // Hacer el texto en negrita
+            priceMessageElement.style.color = "white";
+            priceMessageElement.textContent = priceMessage;
+            productTitle.parentElement.appendChild(priceMessageElement);
         }
 
         // Mostrar miniaturas
