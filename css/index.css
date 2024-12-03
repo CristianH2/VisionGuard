@@ -162,3 +162,12 @@ footer a:hover {
     background-color: #11929e;
 
 }
+
+.text-short {
+    white-space: nowrap;           /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;              /* Oculta el texto que sobrepasa el contenedor */
+    text-overflow: ellipsis;       /* Añade "..." al final si el texto es demasiado largo */
+    max-width: 100%;               /* Limita el ancho del contenedor al 100% de su contenedor padre */
+    display: block;                /* Asegura que el título se comporta como un bloque */
+    text-align: center;            /* Alinea el texto al centro (opcional) */
+}

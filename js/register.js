@@ -44,7 +44,6 @@ document.getElementById("registerForm").addEventListener("submit", function(even
         if (data.message === "User registered successfully.") {
             alert("¡Registro exitoso!");
             // Almacenar el token en localStorage
-            localStorage.setItem("auth_token", data.token);
             window.location.href = "login.html";  // Redirigir al login
         } else {
             alert("Error: " + data.message);  // Mostrar mensaje de error
